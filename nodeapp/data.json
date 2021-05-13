@@ -1,0 +1,9 @@
+{
+    "username": "str",
+    "email": "str",
+    "userID": "int",
+    "password": "str",
+    "sex": "str",
+    "age": "data",
+    "slogan": "str"
+}
