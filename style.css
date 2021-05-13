@@ -160,21 +160,25 @@
        margin: 30px 20px;
    }
    
+   #edit h2 a {
+       color: grey;
+       text-decoration: none;
+   }
+   
    #edit h3 {
        display: inline-block;
    }
    
    #subm {
        width: 180px;
-       height: 50px;
+       height: 40px;
        background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
        border-radius: 5px;
        color: white;
-       font-weight: 500;
+       font-weight: 300;
        font-size: 30px;
-       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
        margin-top: 20px;
-       padding-top: 10px;
    }
    
    #subm:hover {
@@ -261,14 +265,35 @@
    }
    
    #sbm {
-       width: 100%;
+       width: 50%;
        height: 20%;
        background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
        top: 25%;
        position: relative;
-       border-radius: 0px 0px 5px 5px;
+       border-radius: 0px 0px 0px 5px;
        padding-top: 13px;
        color: white;
+       display: inline-block;
+   }
+   
+   #reg {
+       width: 50%;
+       height: 20%;
+       background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
+       top: 25%;
+       position: relative;
+       float: right;
+       border-radius: 0px 0px 5px 0px;
+       padding-top: 13px;
+       color: white;
+   }
+   
+   #reg:hover {
+       background: linear-gradient(150deg, #647dd1 15%, #4f57b1 70%, #3d418a 94%);
+   }
+   
+   #sbm:hover {
+       background: linear-gradient(150deg, #647dd1 15%, #4f57b1 70%, #3d418a 94%);
    }
    
    .logst {

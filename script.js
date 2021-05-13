@@ -81,7 +81,7 @@ $(document).ready(function() {
 
             // 菜单栏滚动渐变动画结束
 
-            $("#read p").text(` ${parseInt((scl/ $(document).height()) * 100+29)}%`)
+            $("#read p").text(` ${parseInt((scl/ $(document).height()) * 100+30)}%`)
 
         })
         // 滚动监听结束
@@ -180,7 +180,10 @@ $(document).ready(function() {
     $("#x").click(function() {
         $('#ad').fadeOut()
     })
-
+    $("#reg").click(function() {
+        $("#moren").hide()
+        $("#edit").css("display", "inline-block")
+    })
 
 
     // network
@@ -192,8 +195,10 @@ $(document).ready(function() {
         $.post("http://127.0.0.1:9696/login", msg, function(res, status) {
             $("#sbm").text("EDIT")
             $("#inpt").hide()
+            $("#reg").hide()
             $("#logi").html('<a href="http://localhost:5500" class="f-menu">退出</a>')
             $(".logst").html(`username: ${res.username}<br><br>Welcome`)
+            $("#sbm").css("width", "100%")
             $(".logst").css("margin-top", "16px")
             $("#sbm").click(function() {
                 $("#moren").hide()
@@ -203,13 +208,12 @@ $(document).ready(function() {
     })
     $("#subm").click(function() {
         let msg = {
-            username: $("#edit input:eq(0)").val(),
+            account: $("#edit input:eq(0)").val(),
             password: $("#edit input:eq(1)").val(),
             email: $("#edit input:eq(2)").val(),
-            id: $("#edit input:eq(3)").val()
         }
         $.post("http://127.0.0.1:9696/reg", msg, function(res, status) {
-
+            location.reload()
         })
     })
 

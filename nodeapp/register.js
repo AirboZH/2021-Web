@@ -1,4 +1,4 @@
-const { app, db, bcrypt } = require("./config")
+const { app, db } = require("./config")
 
 app.post("/reg", async(req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -13,7 +13,7 @@ app.post("/reg", async(req, res) => {
     await db.Web.create({
         account: data.account,
         email: data.email,
-        password: bcrypt.hashSync(data.password, 32)
+        password: data.password
     })
     console.log(data)
     res.end(JSON.stringify(data))

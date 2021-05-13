@@ -1,13 +1,11 @@
 const express = require('express')
 const app = express();
 const db = require("./db")
-const bcrypt = require("bcryptjs")
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-module.exports={
+module.exports = {
     app,
     db,
-    bcrypt
 }
