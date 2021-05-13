@@ -22,7 +22,7 @@ app.post("/login",async(req,res)=>{
     //     model.dataValues.password
     //   );
       const passwordValid= model.password
-      if (passwordValid==data.password) {
+      if (passwordValid==password) {
         console.log("登陆成功");
         res.send({
           status: 1,
