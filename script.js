@@ -182,37 +182,41 @@ $(document).ready(function() {
     })
     $("#reg").click(function() {
         $("#moren").hide()
-        $("#edit").css("display", "inline-block")
+        $("#regi").css("display", "inline-block")
     })
 
 
     // network
     $("#sbm").click(function() {
         let msg = {
-            username: $("#login input:eq(0)").val(),
+            account: $("#login input:eq(0)").val(),
             password: $("#login input:eq(1)").val()
         }
-        $.post("http://127.0.0.1:9696/login", msg, function(res, status) {
-            $("#sbm").text("EDIT")
-            $("#inpt").hide()
-            $("#reg").hide()
-            $("#logi").html('<a href="http://localhost:5500" class="f-menu">退出</a>')
-            $(".logst").html(`username: ${res.username}<br><br>Welcome`)
-            $("#sbm").css("width", "100%")
-            $(".logst").css("margin-top", "16px")
-            $("#sbm").click(function() {
-                $("#moren").hide()
-                $("#edit").css("display", "inline-block")
-            })
+        $.post("http://127.0.0.1:9696/login", msg, function(res) {
+            if (res.status == 1) {
+                $("#sbm").text("EDIT")
+                $("#inpt").hide()
+                $("#reg").hide()
+                $("#logi").html('<a href="http://localhost:5500" class="f-menu">退出</a>')
+                $(".logst").html(`username: ${res.account}<br><br>Welcome`)
+                $("#sbm").css("width", "100%")
+                $(".logst").css("margin-top", "16px")
+                $("#sbm").click(function() {
+                    $("#moren").hide()
+                    $("#edit").css("display", "inline-block")
+                })
+            } else {
+                alert(res.msg)
+            }
         })
     })
-    $("#subm").click(function() {
+    $("#regi-subm").click(function() {
         let msg = {
-            account: $("#edit input:eq(0)").val(),
-            password: $("#edit input:eq(1)").val(),
-            email: $("#edit input:eq(2)").val(),
+            account: $("#regi input:eq(0)").val(),
+            email: $("#regi input:eq(2)").val(),
+            password: $("#regi input:eq(1)").val()
         }
-        $.post("http://127.0.0.1:9696/reg", msg, function(res, status) {
+        $.post("http://127.0.0.1:9696/register", msg, function(res, status) {
             location.reload()
         })
     })

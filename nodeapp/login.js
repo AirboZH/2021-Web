@@ -9,6 +9,7 @@ app.post("/login", async(req, res) => {
     );
     res.setHeader("Content-Type", "application/json;charset=utf-8");
     let { account, password } = req.body;
+    console.log("123123", req.body)
     const model = await db.Web.findOne({ where: { account } })
     if (!model) {
 
@@ -25,15 +26,16 @@ app.post("/login", async(req, res) => {
     //     model.dataValues.password
     //   );
     const passwordValid = model.password
-    if (passwordValid == data.password) {
+    if (passwordValid == password) {
         console.log("登陆成功");
         res.send({
+            account: account,
             status: 1,
             msg: "登陆succeed",
 
         });
     } else {
-        res.send({ status: 0, des: "登陆失败" });
+        res.send({ status: 0, msg: "登陆失败,密码错误" });
         res.end();
     }
 })

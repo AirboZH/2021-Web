@@ -1,11 +1,11 @@
 const { Sequelize, DataTypes, Op } = require("sequelize");
-const sequelize = new Sequelize("web", "root", "mysql123", {
-  host: "localhost",
-  dialect: "mysql",
+const sequelize = new Sequelize("web", "root", "ZHANGbo020329", {
+    host: "localhost",
+    dialect: "mysql",
 });
 
 
-module.exports={
+module.exports = {
     DataTypes,
     sequelize,
 }

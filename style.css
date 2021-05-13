@@ -155,7 +155,17 @@
        height: 1000px;
    }
    
+   #regi {
+       display: none;
+       height: 1000px;
+   }
+   
    #edit div {
+       display: inline-block;
+       margin: 30px 20px;
+   }
+   
+   #regi div {
        display: inline-block;
        margin: 30px 20px;
    }
@@ -181,18 +191,25 @@
        margin-top: 20px;
    }
    
+   #regi-subm {
+       width: 180px;
+       height: 40px;
+       background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
+       border-radius: 5px;
+       color: white;
+       font-weight: 300;
+       font-size: 30px;
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       margin-top: 20px;
+   }
+   
    #subm:hover {
        background: linear-gradient(150deg, #647dd1 15%, #4f57b1 70%, #3d418a 94%);
    }
-   /* 123123 */
-   /* #moren {
-       display: none;
-   }
    
-   #edit {
-       display: inline-block;
-   } */
-   /* 123123 */
+   #regi-subm:hover {
+       background: linear-gradient(150deg, #647dd1 15%, #4f57b1 70%, #3d418a 94%);
+   }
    
    .word {
        height: 1100px;
