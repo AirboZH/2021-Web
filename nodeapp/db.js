@@ -28,8 +28,8 @@ const Web = sequelize.define(
         allowNull:false
     },
     sex: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0,
+      type: DataTypes.STRING(6),
+      defaultValue: "男",
       allowNull: true,
     },
     age: {

@@ -27,7 +27,9 @@ app.post("/login",async(req,res)=>{
         res.send({
           status: 1,
           msg: "登陆succeed",
-          
+          data:{
+              account:model.account
+          }
         });
       } else {
         res.send({ status: 0, des: "登陆失败" });
