@@ -125,7 +125,7 @@ $(document).ready(function() {
     $(`.f-menu:eq(3)`).mouseenter(function() {
         $("#list2").fadeIn()
     })
-    $("#main").mouseenter(function() {
+    $(".main").mouseenter(function() {
         $("#list1").fadeOut()
         $("#list2").fadeOut()
     })
@@ -148,7 +148,7 @@ $(document).ready(function() {
         // 菜单栏小标签show结束
 
     $("#passage").click(function() {
-        $('html,body').animate({ scrollTop: "1033px" });
+        $('html,body').animate({ scrollTop: "980px" });
         $("#list1").fadeOut()
     })
     $("#top").click(function() {
@@ -189,9 +189,9 @@ $(document).ready(function() {
             username: $("#login input:eq(0)").val(),
             password: $("#login input:eq(1)").val()
         }
-        $.post("http://127.0.0.1:9696", msg, function(res, status) {
+        $.post("http://127.0.0.1:9696/login", msg, function(res, status) {
             $("#sbm").text("EDIT")
-            $(".ipt").hide()
+            $("#inpt").hide()
             $("#logi").html('<a href="http://localhost:5500" class="f-menu">退出</a>')
             $(".logst").html(`username: ${res.username}<br><br>Welcome`)
             $(".logst").css("margin-top", "16px")
@@ -199,6 +199,17 @@ $(document).ready(function() {
                 $("#moren").hide()
                 $("#edit").css("display", "inline-block")
             })
+        })
+    })
+    $("#subm").click(function() {
+        let msg = {
+            username: $("#edit input:eq(0)").val(),
+            password: $("#edit input:eq(1)").val(),
+            email: $("#edit input:eq(2)").val(),
+            id: $("#edit input:eq(3)").val()
+        }
+        $.post("http://127.0.0.1:9696/reg", msg, function(res, status) {
+
         })
     })
 

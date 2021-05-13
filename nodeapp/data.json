@@ -1,19 +1,8 @@
 {
-<<<<<<< HEAD
-    "username": "str",
-    "email": "str",
-    "userID": "int",
-    "password": "str",
-    "sex": "str",
-    "age": "data",
-    "slogan": "str"
-}
-=======
     "email": "str",
     "account": "int",
     "password": "str",
     "sex": "str",
-    "age": "data",  
+    "age": "data",
     "signature": "str"
 }
->>>>>>> origin/yun
