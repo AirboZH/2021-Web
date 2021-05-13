@@ -15,5 +15,5 @@ app.post("/register", async(req, res) => {
         password: data.password
     })
     console.log(data)
-    res.end(data)
+    res.end(JSON.stringify(data))
 })

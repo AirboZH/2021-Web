@@ -282,21 +282,22 @@
    }
    
    #sbm {
-       width: 50%;
+       width: 49%;
        height: 20%;
-       background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
+       background-color: #5E72E4;
        top: 25%;
        position: relative;
        border-radius: 0px 0px 0px 5px;
        padding-top: 13px;
        color: white;
        display: inline-block;
+       border-right: #ffffff 2px solid;
    }
    
    #reg {
        width: 50%;
        height: 20%;
-       background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
+       background-color: #5E72E4;
        top: 25%;
        position: relative;
        float: right;

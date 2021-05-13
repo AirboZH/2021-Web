@@ -8,12 +8,3 @@ module.exports = {
     app,
     db,
 };
-<<<<<<< HEAD
-// import express from 'express'
-// import db from './db'
-// import bcrypt from 'bcryptjs'
-// const app = express();
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-=======
->>>>>>> origin/yun
