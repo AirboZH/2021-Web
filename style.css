@@ -170,6 +170,11 @@
        height: 330px;
    }
    
+   .people img {
+       width: 80px;
+       border-radius: 50%;
+   }
+   
    #slogan {
        width: 100%;
        height: 170px;
