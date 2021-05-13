@@ -96,12 +96,38 @@
             <div id="main">
                 <div id="psg">
                     <h1>Hello World</h1>
-                    <p>我做了什么： 静态页面展示 const express = require('express') const app = express(); app.use(express.static(__dirname + '/client')) app.listen(999,()=>{ console.log('listing 999') }) 注册邮箱的验证 登录信息的post和返回登录状态 let sendMsg = ({ "email": tempForm.get("email"),
-                        "password": tempForm.get("password") }); $.post("http://127.0.0.1:8081", sendMsg, function (data, textStatus, jqXHR) { if(data.status === 1){ toast("系统","登录成功！"); let url = "./demo-chat.html"; window.localStorage.setItem("token",data.token);
-                        window.localStorage.setItem("id",data.id); window.localStorage.setItem("email",data.email); window.location.replace(url); } else{ toast("系统", "登录失败"); TemplateSpinner.remove(); } } ); 用户上线信息的发送和广播 用数组储存用户在线列表并在有新增项时返回 用户离线时广播消息和删除列表项
-                        同上 发送消息的广播 服务器环境搭建和运行 学到了什么： Node.JS Http模块响应网页请求 Express框架静态页面，post和get请求的发送和响应 Websocket消息的发送与返回 Nodemailer后端服务器自动发送邮件 localStorage本地储存 还应该做点什么： 本次项目没有做私聊是一个小小的遗憾，而原因就是没有在最初项目刚开始的时候选择合适的模块，到后期意识到这个问题再改的时候又要重写很多的代码，于是这个feat就被搁置了。
-                        应该在项目开始的时候就有对整个项目的规划，然后选用合适的工具和方法，我们的项目没有完整的规划，到后面做东西的时候都是走一步看一步，几个人想想要做什么，一拍脑袋就一起做什么了。 技术方面，对于计算机网络http协议等基础还是差的很多，遇到一些跨域等问题的时候就不知道该做什么了。 代码可读性差，没什么写注释的习惯，自己写的东西几天后自己再看的时候都看不懂了。 端口使用过多，每一个小事情都有自己的端口，应该用请求路径代替。
-                    </p>
+                    <div>
+                        <h2>JavaScript 是属于 HTML 和 Web 的编程语言。</h2>
+
+                        <h2> 编程令计算机完成您需要它们做的工作。</h2>
+
+                        <h2> JavaScript 很容易学习。</h2>
+
+                        <h2> 本教程涵盖 JavaScript 基础和高级教程。</h2>
+
+                        <h2> 为何学习 JavaScript？</h2>
+                        <p>JavaScript 是 web 开发者必学的三种语言之一：</p>
+                        <ul>
+                            <li>HTML 定义网页的内容</li>
+                            <li>CSS 规定网页的布局</li>
+                            <li>JavaScript 对网页行为进行编程</li>
+                        </ul>
+                        <p> 本教程提供关于 JavaScript，以及 JavaScript 如何与 HTML 和 CSS 协同工作的知识。</p>
+                        <h2>您知道吗？</h2>
+                        <p> JavaScript 和 Java 是完全不同的语言，不论是概念还是设计。
+                        </p>
+                        <p> JavaScript 在 1995 年由 Brendan Eich 发明，并于 1997 年成为一部 ECMA 标准。 ECMA-262 是其官方名称。ECMAScript 6 （发布于 2015 年）是最新的 JavaScript 版本。</p>
+                        <h2>学习速度
+                        </h2>
+                        <p>在本教程中，您可以自由控制学习速度。 一切都取决于您。
+                        </p>
+                        <p>如果您遇到困难，请休息一会儿，然后重新读一读材料。 请始终确保您理解了“亲自试一试”中的实例和练习题。</p>
+                        <h2>JavaScript 测验
+                        </h2>
+                        <p>在 W3School 测试您的 JavaScript 技能！</p>
+                        <a href="在 W3School 测试您的 JavaScript 技能！">开始JavaScript技能测试！</a>
+
+                    </div>
                 </div>
                 <div id="els">
                     <h1>Else</h1>

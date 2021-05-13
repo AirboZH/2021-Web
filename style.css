@@ -150,16 +150,20 @@
        height: 2000px;
        background-color: white;
        border-radius: 5px;
-       padding-top: 40px;
+       padding: 40px 70px;
+   }
+   
+   #psg {
+       height: 1100px;
+       text-align: left;
+       line-height: 50px;
    }
    
    #main h1 {
        color: #5E72E4;
        font-weight: 700;
-   }
-   
-   #psg {
-       height: 1100px;
+       text-align: center;
+       margin: 30px 20px;
    }
    
    #els {
@@ -170,9 +174,23 @@
        height: 330px;
    }
    
+   .people {
+       display: inline-block;
+       margin: 20px 80px;
+   }
+   
    .people img {
        width: 80px;
        border-radius: 50%;
+       transition: all .8s;
+   }
+   
+   .people img:hover {
+       transform: rotate(-360deg)
+   }
+   
+   .people h2 {
+       margin-top: 20px;
    }
    
    #slogan {
@@ -296,7 +314,7 @@
    }
    
    #about-info p a {
-       margin-left: 20px;
+       margin-left: 40px;
        text-decoration: none;
        color: rgb(36, 36, 36);
        font-family: 'Segoe UI', "黑体", Geneva, Verdana, sans-serif;

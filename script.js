@@ -78,7 +78,7 @@ $(document).ready(function() {
 
             // 菜单栏滚动渐变动画结束
 
-            $("#read p").text(` ${parseInt(((scl-930) / $("#main").height()) * 100+30)}%`)
+            $("#read p").text(` ${parseInt((scl/ $(document).height()) * 100+29)}%`)
 
         })
         // 滚动监听结束
