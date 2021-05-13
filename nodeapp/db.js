@@ -1,8 +1,4 @@
-const { Sequelize, DataTypes, Op } = require("sequelize");
-const sequelize = new Sequelize("web", "root", "mysql123", {
-  host: "localhost",
-  dialect: "mysql",
-});
+const {sequelize,DataTypes} = require("./dao.js")
 
 const Web = sequelize.define(
   "Web",
@@ -28,7 +24,7 @@ const Web = sequelize.define(
       allowNull: true,
     },
     sex: {
-      type: DataTypes.INTEGER(1),
+      type: DataTypes.INTEGER,
       defaultValue: 0,
       allowNull: false,
     },
@@ -45,4 +41,6 @@ const Web = sequelize.define(
 );
 
 Web.sync({ alter: true });
-module.exports.Web = Web;
+module.exports={
+    Web
+}

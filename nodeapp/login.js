@@ -1,6 +1,6 @@
 const {app,db,bcrypt} = require("./config")
 
-app.post("/login",(req,res)=>{
+app.post("/login",async(req,res)=>{
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
     res.setHeader(
@@ -11,7 +11,7 @@ app.post("/login",(req,res)=>{
     let {account,password} = req.body;
     const model = await db.Web.findOne({where:{account}})
     if(!model){
-        
+
         res.send({
             status:101,
             msg:"用户名不存在，请注册"
