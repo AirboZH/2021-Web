@@ -1,9 +1,8 @@
 {
-    "username": "str",
     "email": "str",
-    "userID": "int",
+    "account": "int",
     "password": "str",
     "sex": "str",
-    "age": "data",
-    "slogan": "str"
+    "age": "data",  
+    "signature": "str"
 }
