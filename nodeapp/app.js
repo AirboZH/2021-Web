@@ -1,10 +1,8 @@
-const express = require('express')
-const app = express();
-
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-
-app.post("/login", (req, res) => {
+const { app } = require("./config")
+const login = require("./login")
+const info = require("./info")
+const register = require("./register")
+app.post("/", (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
     res.setHeader(

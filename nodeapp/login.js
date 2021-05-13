@@ -9,7 +9,6 @@ app.post("/login", async(req, res) => {
     );
     res.setHeader("Content-Type", "application/json;charset=utf-8");
     let { account, password } = req.body;
-    console.log("reqbody", req.body)
     const model = await db.Web.findOne({ where: { account } })
     if (!model) {
 
@@ -34,12 +33,6 @@ app.post("/login", async(req, res) => {
         });
     } else {
         res.send({ status: 0, des: "登陆失败" });
-        console.log("log erro")
+        res.end();
     }
-
-    res.end("123");
-
-})
-app.listen(9696, () => {
-    console.log("listing 9696")
 })
