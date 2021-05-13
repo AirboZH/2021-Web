@@ -75,6 +75,9 @@ $(document).ready(function() {
             $("#header-bar").css("background-color", `rgba(44,62,80,${alpha-0.2})`)
             $(".s-menu li").css("background-color", `rgba(44,62,80,${alpha-0.2})`)
             $("#center").css("opacity", `${alpha}`)
+            if (scl < 900) {
+                $(".bgimg").css("opacity", 1 - 0.3 * alpha)
+            }
 
             // 菜单栏滚动渐变动画结束
 
@@ -83,8 +86,26 @@ $(document).ready(function() {
         })
         // 滚动监听结束
 
-
-    // 小菜单选择效果
+    $(".f-menu").mouseenter(function() {
+        $(this).css("color", "rgb(248, 153, 136)")
+    })
+    $(".f-menu").mouseleave(function() {
+            $(this).css("color", "white")
+            if (scl < 1033) {
+                $(".f-menu").css("color", "white")
+                $(".f-menu:eq(0)").css("color", "tomato")
+            } else if (scl >= 1033 && scl < 2186) {
+                $(".f-menu").css("color", "white")
+                $(".f-menu:eq(1)").css("color", "tomato")
+            } else if (scl >= 2186 && scl < 2371) {
+                $(".f-menu").css("color", "white")
+                $(".f-menu:eq(2)").css("color", "tomato")
+            } else {
+                $(".f-menu").css("color", "white")
+                $(".f-menu:eq(3)").css("color", "tomato")
+            }
+        })
+        // 小菜单选择效果
     $(".s-menu li").mouseenter(function() {
         if (scl >= 500) {
             $(this).css("background-color", `rgba(44,62,80,${alpha-0.4})`)
@@ -156,21 +177,32 @@ $(document).ready(function() {
             $(this).val("")
         }
     })
+    $("#x").click(function() {
+        $('#ad').fadeOut()
+    })
+
+
+
+    // network
     $("#sbm").click(function() {
         let msg = {
             username: $("#login input:eq(0)").val(),
             password: $("#login input:eq(1)").val()
         }
         $.post("http://127.0.0.1:9696", msg, function(res, status) {
-            $("#sbm").text("LOG OUT")
+            $("#sbm").text("EDIT")
             $(".ipt").hide()
-            $("#logi").fadeOut()
+            $("#logi").html('<a href="http://localhost:5500" class="f-menu">退出</a>')
             $(".logst").html(`username: ${res.username}<br><br>Welcome`)
             $(".logst").css("margin-top", "16px")
+            $("#sbm").click(function() {
+                $("#moren").hide()
+                $("#edit").css("display", "inline-block")
+            })
         })
     })
-    $("#x").click(function() {
-        $('#ad').fadeOut()
-    })
+
+
+
 
 })
