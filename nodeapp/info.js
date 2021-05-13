@@ -8,28 +8,32 @@ app.post("/info",async(req,res)=>{
         "X-Requested-With,content-type, Authorization"
     );
     res.setHeader("Content-Type", "application/json;charset=utf-8");
-    let data=req.body;
-    const model=db.Web.findOne({where:data.account})
-    if(data.account){
-        model.account=data.account
+    let {account,sex,signature,age}=req.body;
+    const model=await db.Web.findOne({where:{account}})
+    console.log(model.dataValues)
+    if(account){
+        model.account=account
     }
-    if(data.sex){
-        model.sex=data.sex
+    if(sex){
+        model.sex=sex
     }
-    if(data.signature){
-        model.signature=data.signature
+    if(signature){
+        model.signature=signature
+    }
+    if(age){
+        model.age=age
     }
     (await model).save();
     (await model).reload();
     res.send({
-        "code": 0,
-        "message": "修改用户信息成功",
-        "data": {
-            "account":model.account,
-            "signature":model.signature,
-            "sex":model.sex,
-            "age":model.age,
-            "email":model.email
+        code: 0,
+        message: "修改用户信息成功",
+        data: {
+            account:model.account,
+            signature:model.signature,
+            sex:model.sex,
+            age:model.age,
+            email:model.email
         }
     })
 })

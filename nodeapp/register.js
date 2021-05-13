@@ -1,5 +1,4 @@
 const { app, db } = require("./config")
-    // const web=require("./db")
 app.post("/register", async(req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");

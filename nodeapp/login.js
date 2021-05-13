@@ -1,4 +1,4 @@
-const { app, db, bcrypt } = require("./config")
+const { app, db } = require("./config");
 
 app.post("/login", async(req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -9,33 +9,27 @@ app.post("/login", async(req, res) => {
     );
     res.setHeader("Content-Type", "application/json;charset=utf-8");
     let { account, password } = req.body;
-    console.log("123123", req.body)
-    const model = await db.Web.findOne({ where: { account } })
+    const model = await db.Web.findOne({ where: { account } });
     if (!model) {
-
         res.send({
             status: 101,
-            msg: "用户名不存在，请注册"
-        })
-        console.log("用户名不存在，请注册")
-    } else {
-        console.log("3333 ")
+            msg: "用户名不存在，请注册",
+        });
     }
-    // const passwordValid = bcrypt.compareSync(
-    //     bcrypt.hashSync(password, 32),
-    //     model.dataValues.password
-    //   );
-    const passwordValid = model.password
+
+    const passwordValid = model.password;
     if (passwordValid == password) {
         console.log("登陆成功");
         res.send({
-            account: account,
             status: 1,
             msg: "登陆succeed",
-
+            account: model.account
         });
     } else {
-        res.send({ status: 0, msg: "登陆失败,密码错误" });
+        res.send({
+            status: 0,
+            msg: "登陆失败,密码错误"
+        });
         res.end();
     }
-})
+});
