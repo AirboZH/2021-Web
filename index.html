@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!--第一层-背景层 -->
+    <div id="slide">
+        <!--图序小图标-->
+        <div id="icon_point">
+            <ul>
+                <li><img src="./img/icon_point.png" alt="icon_point"></li>
+                <li><img src="./img/icon_point.png" alt="icon_point"></li>
+                <li><img src="./img/icon_point.png" alt="icon_point"></li>
+                <li><img src="./img/icon_point.png" alt="icon_point"></li>
+            </ul>
+        </div>
+        <!--图片-->
+        <div id="pic1" class="bgimg" style="background-image: url('./img/bgimg1.jpg');"></div>
+        <div id="pic2" class="bgimg" style="background-image: url('./img/bgimg2.jpg');"></div>
+        <div id="pic3" class="bgimg" style="background-image: url('./img/bgimg3.jpg');"></div>
+        <div id="pic4" class="bgimg" style="background-image: url('./img/bgimg4.jpg');"></div>
+    </div>
+    <!--第二层-->
+    <div style="height: 100%;">
+        <!--空白占位区域-->
+        <div style="height: 93%;" id="blank"></div>
+
+        <!--菜单栏-->
+        <div id="header-bar">
+            <ul>
+                <li><a id="index" class="f-menu">主页</a></li>
+                <li>
+                    <a id="passage" class="f-menu"> 文章</a>
+                    <ul id="list1" class="s-menu">
+                        <li><a href="">前端 </a></li>
+                        <li><a href="">后端 </a></li>
+                        <li><a href="">日志 </a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a id="else" class="f-menu">其他</a>
+                </li>
+                <li>
+                    <a id="about" class="f-menu">关于</a>
+                    <ul id="list2" class="s-menu">
+                        <li><a href="#mail">email</a></li>
+                        <li><a href="#web">blog</a></li>
+                        <li><a href="#web">name</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a id="logi" class="f-menu">登录</a>
+                </li>
+            </ul>
+            <div id="header-bar-bg"></div>
+        </div>
+        <!--内容区域-->
+        <div id="center">
+
+            <div id="side">
+                <div id="slogan">
+                    <p>生活原本沉闷，但跑起来就有风</p>
+                </div>
+                <div id="login">
+                    <input type="text" name="username" value="username" class="ipt">
+                    <input type="password" name="pswd" value="password" class="ipt">
+                    <p class="logst"></p>
+                    <div id="sbm">LOG IN</div>
+                </div>
+                <div id="ad">
+                    <img src="./img/x.png" id="x" alt="x">
+                    <img src="./img/ad.png" id="adimg" alt="ad">
+                </div>
+                <div id="about-info">
+                    <img src="./img/3.jpg" id="touxiang" alt="">
+                    <p>Hi~我是Airbo</p>
+                    <div id="web"><img src="./img/web.png" class="about-ico" alt="">
+                        <p>
+                            <a href="www.tomzhang.com.cn">Airbo的个人博客</a>
+                        </p>
+                    </div>
+                    <div id="mail"><img src="./img/email.png" class="about-ico" alt="">
+                        <p>
+                            <a href="mailto:airbozh@qq.com">airbozh@qq.com</a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="main">
+                <div id="psg">
+                    <h1>Hello World</h1>
+                </div>
+                <div id="els">
+                    <h1>Else</h1>
+                </div>
+                <div id="abt">
+                    <h1>About me</h1>
+                </div>
+            </div>
+            <div id="footer">
+                <p>-----我是有底线的哦------</p>
+            </div>
+
+
+
+        </div>
+
+        <div id="side-tools">
+            <div id="top" class="side-tool"><img src="./img/top.png" alt="top"></div>
+            <div id="read" class="side-tool">
+                <p></p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- scripts -->
+    <script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
