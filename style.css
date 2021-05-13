@@ -1,0 +1,350 @@
+   /* 初始化 */
+   
+   * {
+       margin: 0px;
+       padding: 0px;
+   }
+   
+   html,
+   body {
+       height: 100%;
+       width: 100%;
+   }
+   
+   body {
+       min-width: 1000px;
+       background-color: black;
+   }
+   /* slide区域 */
+   
+   #slide {
+       width: 100%;
+       height: 100%;
+       position: fixed;
+       z-index: -1;
+   }
+   
+   #icon_point {
+       float: right;
+       margin-top: 20%;
+       margin-right: 50px;
+   }
+   
+   #icon_point ul {
+       display: block;
+       position: absolute;
+       z-index: 2;
+       margin: 0;
+       width: 20px;
+       height: 100px;
+   }
+   
+   #icon_point li {
+       display: inline;
+   }
+   
+   #icon_point ul li img {
+       width: 30px;
+       opacity: 35%;
+   }
+   
+   .bgimg {
+       background-repeat: no-repeat;
+       background-size: 100%;
+       width: auto;
+       height: 100%;
+       display: none;
+   }
+   
+   #pic1 {
+       display: block;
+   }
+   /* 菜单栏 */
+   
+   #header-bar {
+       width: 100%;
+       height: 4%;
+       background-color: rgba(44, 62, 80, 0);
+       padding-top: 10px;
+       position: relative;
+       top: 0px;
+       color: rgb(256, 256, 256);
+       z-index: 5;
+   }
+   
+   #header-bar>ul {
+       margin-left: 230px;
+   }
+   
+   #header-bar ul li {
+       display: inline-block;
+       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       font-size: 25px;
+       width: 150px;
+       text-align: center;
+   }
+   
+   .f-menu {
+       color: white;
+       text-decoration: none;
+       display: inline-block;
+   }
+   
+   #logi {
+       float: right;
+       position: absolute;
+       right: 50px;
+       top: 10px;
+   }
+   
+   .f-menu:hover {
+       color: rgb(248, 153, 136);
+   }
+   
+   .s-menu {
+       position: absolute;
+       width: 150px;
+       height: auto;
+       margin: 10px 0px;
+       top: -191px;
+       z-index: 2;
+       color: white;
+       background-color: rgba(44, 62, 80, 0);
+       box-shadow: 4px -2px 8px rgba(44, 62, 80, 5);
+   }
+   
+   .s-menu li {
+       height: 60px;
+   }
+   
+   .s-menu li a {
+       color: white;
+       text-decoration: none;
+   }
+   
+   .s-menu li a:hover {
+       color: rgb(248, 153, 136);
+   }
+   
+   #center {
+       height: 2000px;
+       text-align: center;
+   }
+   
+   #side {
+       display: inline-block;
+       width: 15%;
+       position: relative;
+       margin-top: 200px;
+       vertical-align: top;
+       border-radius: 5px;
+       position: sticky;
+       top: 65px;
+   }
+   
+   #main {
+       vertical-align: top;
+       margin: 200px 20px 100px 20px;
+       display: inline-block;
+       width: 60%;
+       height: 2000px;
+       background-color: white;
+       border-radius: 5px;
+       padding-top: 40px;
+   }
+   
+   #main h1 {
+       color: #5E72E4;
+       font-weight: 700;
+   }
+   
+   #psg {
+       height: 1100px;
+   }
+   
+   #els {
+       height: 550px;
+   }
+   
+   #abt {
+       height: 330px;
+   }
+   
+   #slogan {
+       width: 100%;
+       height: 170px;
+       text-align: center;
+       display: inline-block;
+       background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
+       color: white;
+       margin: 0;
+       border-radius: 5px;
+   }
+   
+   #slogan p {
+       margin-top: 80px;
+   }
+   
+   #login {
+       width: 100%;
+       height: 210px;
+       margin-top: 20px;
+       background-color: white;
+       border-radius: 5px;
+       padding-top: 40px;
+   }
+   
+   #sbm {
+       width: 100%;
+       height: 20%;
+       background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
+       top: 25%;
+       position: relative;
+       border-radius: 0px 0px 5px 5px;
+       padding-top: 13px;
+       color: white;
+   }
+   
+   .logst {
+       color: #34495e;
+       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       font-size: 25px;
+   }
+   
+   .ipt {
+       width: 80%;
+       height: 30px;
+       margin: 10px 10px;
+       color: #34495e;
+       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       font-size: 18px;
+       background: none;
+       outline: none;
+       border: 0px;
+       border-bottom: 2px solid #dcdcdc;
+       border-bottom-left-radius: 1px;
+       border-bottom-right-radius: 1px;
+   }
+   
+   .ipt:focus {
+       border-style: solid;
+       border-color: #5E72E4;
+   }
+   
+   #ad {
+       width: 100%;
+       height: 450px;
+       margin-top: 20px;
+       background-color: white;
+       border-radius: 5px;
+       overflow: hidden;
+       text-align: center;
+   }
+   
+   #x {
+       width: 30px;
+       position: absolute;
+       right: 0px;
+       margin-top: 10px;
+       transition: all .4s
+   }
+   
+   #x:hover {
+       transform: rotate(-90deg)
+   }
+   
+   #adimg {
+       height: 100%;
+       float: left;
+   }
+   
+   #about-info {
+       width: 100%;
+       height: 350px;
+       margin-top: 20px;
+       background-color: white;
+       border-radius: 5px;
+       text-align: center;
+   }
+   
+   .about-ico {
+       width: 20px;
+       position: absolute;
+       left: 40px;
+       margin-top: 7px;
+   }
+   
+   #touxiang {
+       margin-top: 30px;
+       width: 80px;
+       height: 80px;
+       overflow: hidden;
+       border-radius: 50%;
+       object-fit: cover;
+   }
+   
+   #about-info p {
+       color: #5E72E4;
+       font-weight: 600;
+       margin-top: 30px;
+       font-size: 20px;
+   }
+   
+   #about-info p a {
+       margin-left: 20px;
+       text-decoration: none;
+       color: rgb(36, 36, 36);
+       font-family: 'Segoe UI', "黑体", Geneva, Verdana, sans-serif;
+       font-size: 20px;
+   }
+   
+   #about-info p a:hover {
+       color: #4757ae;
+   }
+   
+   #side-tools {
+       float: right;
+       position: fixed;
+       right: 50px;
+       top: 70%;
+       display: none;
+   }
+   
+   .side-tool {
+       width: 50px;
+       height: 50px;
+       border-radius: 10px;
+       background-color: white;
+       margin: 10px 20px;
+       text-align: center;
+   }
+   
+   #read {
+       height: 30px;
+       padding-top: 7px;
+   }
+   
+   #read p {
+       font-size: 13px;
+       font-weight: 700;
+       color: #5E72E4;
+   }
+   
+   #top img {
+       width: 40px;
+       display: inline-block;
+       margin-top: 5px;
+   }
+   
+   #footer {
+       width: 100%;
+       height: 70px;
+       padding-top: 30px;
+       background-color: rgb(29, 29, 29);
+   }
+   
+   #footer p {
+       color: white;
+       font-family: 'Segoe UI', "黑体", Geneva, Verdana, sans-serif;
+       font-size: 25px;
+   }
