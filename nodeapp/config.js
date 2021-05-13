@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const db = require("./db");
 const bcrypt = require("bcryptjs");
-const Web = db.Web
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -11,7 +10,6 @@ app.use(express.urlencoded({ extended: true }));
 //   male = 1,
 //   female = 2,
 // }
-module.exports.Web = Web
 module.exports = {
     app,
     db,

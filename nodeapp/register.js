@@ -1,6 +1,6 @@
-const { app, db } = require("./config")
-
-app.post("/reg", async(req, res) => {
+const { app, bcrypt, db } = require("./config")
+    // const web=require("./db")
+app.post("/register", async(req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
     res.setHeader(
@@ -17,7 +17,4 @@ app.post("/reg", async(req, res) => {
     })
     console.log(data)
     res.end(JSON.stringify(data))
-})
-app.listen(9696, () => {
-    console.log("listing 9696")
 })

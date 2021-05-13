@@ -20,11 +20,12 @@ app.post("/login", async(req, res) => {
     } else {
         console.log("3333 ")
     }
-    const passwordValid = bcrypt.compareSync(
-        bcrypt.hashSync(password, 32),
-        model.dataValues.password
-    );
-    if (!passwordValid) {
+    // const passwordValid = bcrypt.compareSync(
+    //     bcrypt.hashSync(password, 32),
+    //     model.dataValues.password
+    //   );
+    const passwordValid = model.password
+    if (passwordValid == data.password) {
         console.log("登陆成功");
         res.send({
             status: 1,

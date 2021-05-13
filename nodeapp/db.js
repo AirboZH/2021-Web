@@ -22,10 +22,14 @@ const Web = sequelize.define(
             type: DataTypes.STRING(200),
             allowNull: true,
         },
+        password: {
+            type: DataTypes.STRING(16),
+            allowNull: false
+        },
         sex: {
             type: DataTypes.INTEGER,
             defaultValue: 0,
-            allowNull: false,
+            allowNull: true,
         },
         age: {
             type: DataTypes.INTEGER(3),
@@ -38,7 +42,8 @@ const Web = sequelize.define(
     }
 );
 
-Web.sync({ alter: true });
+Web.sync();
+// module.exports.Web = Web;
 module.exports = {
     Web
 }
