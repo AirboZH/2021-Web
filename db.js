@@ -4,9 +4,6 @@ const sequelize = new Sequelize("web","root","mysql123",{
     dialect: "mysql",
 });
 
-(async function(){
-    await sequelize.sync()
-})
 
 const Web= sequelize.define(
     "Web",
@@ -43,4 +40,5 @@ const Web= sequelize.define(
     }
 );
 
+Web.sync();
 module.exports.Web=Web;
