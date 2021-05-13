@@ -1,4 +1,4 @@
-const {app,db,bcrypt} = require("./config")
+const {app,db} = require("./config")
 
 app.post("/login",async(req,res)=>{
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -17,10 +17,7 @@ app.post("/login",async(req,res)=>{
             msg:"用户名不存在，请注册"
         })
     }
-    // const passwordValid = bcrypt.compareSync(
-    //     bcrypt.hashSync(password, 32),
-    //     model.dataValues.password
-    //   );
+
       const passwordValid= model.password
       if (passwordValid==password) {
         console.log("登陆成功");

@@ -45,7 +45,6 @@ const Web = sequelize.define(
 );
 
 Web.sync();
-// module.exports.Web = Web;
 module.exports={
     Web
 }

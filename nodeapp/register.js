@@ -1,5 +1,4 @@
-const {app,bcrypt,db} = require("./config")
-// const web=require("./db")
+const {app,db} = require("./config")
 app.post("/register",async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
