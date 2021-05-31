@@ -1,5 +1,6 @@
 {
     "dependencies": {
+        "bcryptjs": "^2.4.3",
         "editor.md": "^1.5.0",
         "express": "^4.17.1",
         "mysql2": "^2.2.5",

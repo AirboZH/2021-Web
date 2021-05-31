@@ -6,24 +6,68 @@
     <title>Document</title>
     <link rel="stylesheet" href="./nodeapp/node_modules/editor.md/css/editormd.css">
 
+    <link rel="stylesheet" href="./nodeapp/node_modules/editor.md/css/editormd.preview.css">
+
+
 </head>
 
 <body>
     <div id="editor">
-        <textarea style="display:none;">### Hello Editor.md !</textarea>
+        <textarea class="editormd-markdown-textarea" name="doc" style="display:none;">### Hello Editor.md !</textarea>
     </div>
+    <button id="test">123123</button>
+
+    <div id="test-markdown-view">
+        <textarea id="view-markdown-area" style="display:none;"># 123</textarea>
+    </div>
+
 
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="./nodeapp/node_modules/editor.md/editormd.min.js"></script>
+
+    <script src="./nodeapp/node_modules/editor.md/lib/marked.min.js"></script>
+    <script src="./nodeapp/node_modules/editor.md/lib/prettify.min.js"></script>
+
+
     <script>
+        var editor
         $(function() {
-            var editor = editormd("editor", {
+            editor = editormd("editor", {
                 width: "100%",
-                height: "900px",
+                height: "500px",
+                // saveHTMLToTextarea: true,
                 // markdown: "xxxx",     // dynamic set Markdown text
-                path: "./nodeapp/node_modules/editor.md/lib/" // Autoload modules mode, codemirror, marked... dependents libs path
+                path: "./nodeapp/node_modules/editor.md/lib/", // Autoload modules mode, codemirror, marked... dependents libs path
+
+                imageUpload: true,
+                imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                imageUploadURL: "/uppic/", //注意你后端的上传图片服务地址
+                // 上传图片后返回的信息{
+                //     success: 0 | 1, //0表示上传失败;1表示上传成功
+                //     message: "提示的信息",
+                //     url: "图片地址" //上传成功时才返回
+                // }
+
             });
         });
+
+        $("#test").click(function() {
+            var doc = editor.getMarkdown()
+            console.log(doc);
+            $("#test-markdown-view").html(`<textarea id="view-markdown-area" style="display:none;">${doc}</textarea>`)
+            $(mth)
+        })
+    </script>
+    <script type="text/javascript">
+        var mth = function() {
+            var testView = editormd.markdownToHTML("test-markdown-view", {
+                htmlDecode: "style,script,iframe",
+                emoji: true,
+                taskList: true
+                    //codeFold: true,
+            })
+        }
+        $(mth)
     </script>
 </body>
 
