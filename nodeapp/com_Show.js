@@ -15,7 +15,7 @@ app.post("/cs",async(req,res)=>{
     })
     res.send({
         code:104,
-        msg:"已成功查找所以评论",
+        msg:"已成功查找所有评论",
         data:{
             model
         }
