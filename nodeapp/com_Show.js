@@ -1,5 +1,7 @@
 const { app, db } = require("./config");
-
+/**
+ * @param Post_id
+ */
 app.post("/cs",async(req,res)=>{
     const {Post_id} = req.body
     res.setHeader("Access-Control-Allow-Origin", "*");
