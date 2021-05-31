@@ -1,7 +1,7 @@
 const {sequelize,DataTypes} = require("./dao.js")
 
-const Web = sequelize.define(
-  "Web",
+const User = sequelize.define(
+  "User",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -40,11 +40,11 @@ const Web = sequelize.define(
   },
   {
     sequelize,
-    modelName: "Web",
+    modelName: "User",
   }
 );
 
-Web.sync();
+User.sync({force:true});
 module.exports={
-    Web
+    User
 }

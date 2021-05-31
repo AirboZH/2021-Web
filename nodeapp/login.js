@@ -9,7 +9,7 @@ app.post("/login", async (req, res) => {
   );
   res.setHeader("Content-Type", "application/json;charset=utf-8");
   let { account, password } = req.body;
-  const model = await db.Web.findOne({ where: { account } });
+  const model = await db.User.findOne({ where: { account } });
   if (!model) {
     res.send({
       status: 101,
