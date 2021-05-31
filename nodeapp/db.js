@@ -1,50 +1,34 @@
-const {sequelize,DataTypes} = require("./dao.js")
+const { User } = require("./User");
+const { Post } = require("./post");
+const { Comment } = require("./comment");
+const {sequelize} = require("./dao")
 
-const User = sequelize.define(
-  "User",
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    account: {
-      type: DataTypes.STRING(16),
-      allowNull: false,
-      unique: "account",
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: "email",
-    },
-    signature: {
-      type: DataTypes.STRING(200),
-      allowNull: true,
-    },
-    password:{
-        type:DataTypes.STRING(16),
-        allowNull:false
-    },
-    sex: {
-      type: DataTypes.STRING(6),
-      defaultValue: "男",
-      allowNull: true,
-    },
-    age: {
-      type: DataTypes.INTEGER(3),
-      allowNull: true,
-      defaultValue: 0,
-    },
-  },
-  {
-    sequelize,
-    modelName: "User",
-  }
-);
+User.hasMany(Post,{
+    foreignKey:"account",
+    sourceKey:"account",
+    onUpdate:"CASCADE",
+})
+Post.belongsTo(User,{
+    foreignKey:"account",
+    targetKey:"account",
+})
 
-User.sync({force:true});
-module.exports={
-    User
-}
+Post.hasMany(Comment,{
+    foreignKey:"Post_id",
+    sourceKey:"Post_id"
+})
+Comment.belongsTo(Post,{
+    foreignKey:"Post_id",
+    targetKey:"Post_id"
+})
+
+Post.hasMany(Comment,{
+    foreignKey:"account",
+    sourceKey:"account"
+})
+Comment.belongsTo(Post,{
+    foreignKey:"account",
+    targetKey:"account"
+})
+
+sequelize.sync({force:true})
