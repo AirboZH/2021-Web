@@ -1,4 +1,4 @@
-const {app,db} = require("./config")
+const {app,db} = require("../config")
 app.post("/register",async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
