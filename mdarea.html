@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./nodeapp/node_modules/editor.md/css/editormd.preview.css">
+</head>
+
+<body>
+
+    <div id="test-markdown-view">
+        <textarea style="display:none;"># 12\n # 123</textarea>
+    </div>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="./nodeapp/node_modules/editor.md/editormd.js"></script>
+    <script src="./nodeapp/node_modules/editor.md/lib/marked.min.js"></script>
+    <script src="./nodeapp/node_modules/editor.md/lib/prettify.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var testView = editormd.markdownToHTML("test-markdown-view", {
+                // markdown : "[TOC]\n### Hello world!\n## Heading 2", // Also, you can dynamic set Markdown text
+                // htmlDecode : true,  // Enable / disable HTML tag encode.
+                // htmlDecode : "style,script,iframe",  // Note: If enabled, you should filter some dangerous HTML tags for website security.
+            });
+        });
+    </script>
+</body>
+
+</html>
