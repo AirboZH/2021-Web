@@ -21,6 +21,7 @@ const Post = sequelize.define(
         title:{
             type:DataTypes.STRING(60),
             allowNull:false,   
+            unique:"title"
         },
         article:{
             type:DataTypes.TEXT,
