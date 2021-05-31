@@ -72,7 +72,7 @@ $(document).ready(function() {
 
             // 菜单栏滚动渐变动画
             alpha = scl / $(window).height();
-            $("#header-bar").css("background-color", `rgba(44,62,80,${alpha-0.2})`)
+            $("#header-bar").css("opacity", `${alpha-0.2}`)
             $(".s-menu li").css("background-color", `rgba(44,62,80,${alpha-0.2})`)
             $("#center").css("opacity", `${alpha}`)
             if (scl < 900) {
