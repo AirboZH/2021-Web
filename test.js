@@ -20,7 +20,7 @@ $("#log").click(function(){
                 account:res.account
             }
             $.post("http://127.0.0.1:9696/ps",msg,function(res,status){
-            $("#ps").html(`${res}`)
+            $("#ps").html(JSON.stringify(res))
         })
     })
 })
