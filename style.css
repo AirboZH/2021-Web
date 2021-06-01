@@ -59,13 +59,15 @@
    #pic1 {
        display: block;
    }
+   /*第二层*/
+   
+   #second-floor {}
    /* 菜单栏 */
    
    #header-bar {
        width: 100%;
-       height: 4%;
-       background: linear-gradient(150deg, #5e60e4 0%, #7780f8 10%, #25a4ff 100%);
-       padding-top: 10px;
+       height: 7%;
+       /* background: linear-gradient(150deg, #5e60e4 0%, #7780f8 10%, #25a4ff 100%); */
        position: relative;
        top: 0px;
        color: rgb(256, 256, 256);
@@ -73,15 +75,28 @@
    }
    
    #header-bar>ul {
-       margin-left: 230px;
+       margin: 15px 230px;
+       position: absolute;
    }
    
    #header-bar ul li {
        display: inline-block;
        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-       font-size: 25px;
+       font-size: 30px;
        width: 150px;
        text-align: center;
+   }
+   
+   #header-bar ul li a {
+       margin-top: -13px;
+   }
+   
+   #header-bar-bg {
+       background: linear-gradient(150deg, #5e60e4 0%, #7780f8 10%, #25a4ff 100%);
+       width: 100%;
+       height: 100%;
+       position: absolute;
+       opacity: 0%;
    }
    
    .f-menu {
@@ -130,12 +145,12 @@
    #side {
        display: inline-block;
        width: 15%;
-       position: relative;
+       position: absolute;
        margin-top: 150px;
        vertical-align: top;
        border-radius: 5px;
        position: sticky;
-       top: 65px;
+       top: 100px;
        margin-bottom: 200px;
    }
    

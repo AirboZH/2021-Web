@@ -35,6 +35,7 @@ $(document).ready(function() {
 
             }
             // 滚到到区域变化
+
             if (scl >= 900) {
                 $("#header-bar").css("position", "fixed")
                 $("#menu-list ul").css({ "top": "68.13px" })
@@ -59,10 +60,10 @@ $(document).ready(function() {
             if (scl < 1033) {
                 $(".f-menu").css("color", "white")
                 $(".f-menu:eq(0)").css("color", "tomato")
-            } else if (scl >= 1033 && scl < 2186) {
+            } else if (scl >= 1033 && scl < 2070) {
                 $(".f-menu").css("color", "white")
                 $(".f-menu:eq(1)").css("color", "tomato")
-            } else if (scl >= 2186 && scl < 2371) {
+            } else if (scl >= 2070 && scl < 2360) {
                 $(".f-menu").css("color", "white")
                 $(".f-menu:eq(2)").css("color", "tomato")
             } else {
@@ -72,7 +73,7 @@ $(document).ready(function() {
 
             // 菜单栏滚动渐变动画
             alpha = scl / $(window).height();
-            $("#header-bar").css("opacity", `${alpha-0.2}`)
+            $("#header-bar-bg").css("opacity", `${alpha-0.2}`)
             $(".s-menu li").css("background-color", `rgba(44,62,80,${alpha-0.2})`)
             $("#center").css("opacity", `${alpha}`)
             if (scl < 900) {
@@ -97,9 +98,9 @@ $(document).ready(function() {
             } else if (scl >= 1033 && scl < 2186) {
                 $(".f-menu").css("color", "white")
                 $(".f-menu:eq(1)").css("color", "tomato")
-            } else if (scl >= 2186 && scl < 2371) {
+            } else if (scl >= 2186 && scl < 2360) {
                 $(".f-menu").css("color", "white")
-                $(".f-menu:eq(2)").css("color", "tomato")
+                $(".f-menu:eq(2)").css("color", "   tomato")
             } else {
                 $(".f-menu").css("color", "white")
                 $(".f-menu:eq(3)").css("color", "tomato")
@@ -148,7 +149,7 @@ $(document).ready(function() {
         // 菜单栏小标签show结束
 
     $("#passage").click(function() {
-        $('html,body').animate({ scrollTop: "980px" });
+        $('html,body').animate({ scrollTop: "950px" });
         $("#list1").fadeOut()
     })
     $("#top").click(function() {
