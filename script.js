@@ -86,15 +86,17 @@ $(document).ready(function() {
             }
 
             // 滚到到区域变化结束
-            if (scl < 930) {
-                $(".f-menu").css("color", "white")
-                $(".f-menu:eq(0)").css("color", "tomato")
-            } else if (scl >= 930 && scl < 1200) {
-                $(".f-menu").css("color", "white")
-                $(".f-menu:eq(1)").css("color", "tomato")
-            } else {
-                $(".f-menu").css("color", "white")
-                $(".f-menu:eq(2)").css("color", "   tomato")
+            if (ifpassage == 0) {
+                if (scl < 930) {
+                    $(".f-menu").css("color", "white")
+                    $(".f-menu:eq(0)").css("color", "tomato")
+                } else if (scl >= 930 && scl < 1200) {
+                    $(".f-menu").css("color", "white")
+                    $(".f-menu:eq(1)").css("color", "tomato")
+                } else {
+                    $(".f-menu").css("color", "white")
+                    $(".f-menu:eq(2)").css("color", "   tomato")
+                }
             }
 
 
@@ -109,7 +111,7 @@ $(document).ready(function() {
 
             // 菜单栏滚动渐变动画结束
 
-            $("#read p").text(` ${parseInt((scl/ $(document).height()) * 100+30)}%`)
+            $("#read p").text(` ${parseInt((scl/ $(document).height()) * 100+37)}%`)
 
         })
         // 滚动监听结束
@@ -120,15 +122,20 @@ $(document).ready(function() {
 
     $(".f-menu").mouseleave(function() {
         $(this).css("color", "white")
-        if (scl < 930) {
-            $(".f-menu").css("color", "white")
-            $(".f-menu:eq(0)").css("color", "tomato")
-        } else if (scl >= 930 && scl < 1200) {
-            $(".f-menu").css("color", "white")
-            $(".f-menu:eq(1)").css("color", "tomato")
+        if (ifpassage == 0) {
+            if (scl < 930) {
+                $(".f-menu").css("color", "white")
+                $(".f-menu:eq(0)").css("color", "tomato")
+            } else if (scl >= 930 && scl < 1200) {
+                $(".f-menu").css("color", "white")
+                $(".f-menu:eq(1)").css("color", "tomato")
+            } else {
+                $(".f-menu").css("color", "white")
+                $(".f-menu:eq(2)").css("color", "   tomato")
+            }
         } else {
             $(".f-menu").css("color", "white")
-            $(".f-menu:eq(2)").css("color", "   tomato")
+            $(".f-menu:eq(3)").css("color", "   tomato")
         }
     })
 
@@ -148,9 +155,11 @@ $(document).ready(function() {
     // 菜单栏小标签show
     $(`.f-menu:eq(3)`).mouseenter(function() {
         $("#list1").fadeIn()
+        $("#list2").fadeOut()
     })
     $(`.f-menu:eq(2)`).mouseenter(function() {
         $("#list2").fadeIn()
+        $("#list1").fadeOut()
     })
     $(".main").mouseenter(function() {
         $("#list1").fadeOut()
@@ -164,20 +173,18 @@ $(document).ready(function() {
         $("#list1").fadeOut()
         $("#list2").fadeOut()
     })
-    $(".f-menu:eq(2)").mouseenter(function() {
+    $(".f-menu:eq(1)").mouseenter(function() {
         $("#list1").fadeOut()
         $("#list2").fadeOut()
     })
-    $(".f-menu:eq(4)").mouseenter(function() {
-            $("#list1").fadeOut()
-            $("#list2").fadeOut()
-        })
-        // 菜单栏小标签show结束
+
+    // 菜单栏小标签show结束
     $(".f-menu").click(function() {
         $("#post").hide()
         $("#regi").hide()
         $("#edit").hide()
         $("#post-passage").hide()
+        ifpassage = 0
         $("#moren").css("display", "inline-block")
     })
     $("#passage").click(function() {
@@ -198,13 +205,13 @@ $(document).ready(function() {
     })
 
     $("#else").click(function() {
-        $('html,body').animate({ scrollTop: "2186px" });
+        $('html,body').animate({ scrollTop: "950px" });
     })
     $("#about").click(function() {
-        $('html,body').animate({ scrollTop: "2386px" });
+        $('html,body').animate({ scrollTop: "1302px" });
     })
     $("#logi").click(function() {
-        $('html,body').animate({ scrollTop: "1226px" });
+        $('html,body').animate({ scrollTop: "1178px" });
     })
     $("#login input:eq(0)").click(function() {
         if ($(this).val() == "username") {
@@ -306,7 +313,13 @@ $(document).ready(function() {
                 "title": title,
                 "article": doc
             }, function(data, status) {
-                console.log("发帖返回:", data, status)
+                console.log("发帖返回:", data)
+                if (data.code == 1) {
+                    alert(data.msg)
+                    location.reload()
+                } else {
+                    alert("发帖失败")
+                }
 
             })
         })
