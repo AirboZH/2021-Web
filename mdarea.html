@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
@@ -11,13 +11,15 @@
 
 <body>
     <div id="test-markdown-view">
-        <textarea id="view-markdown-area" style="display:none;"># 123</textarea>
-    </div>
 
+    </div>
+    <hr style="border: 5px solid #6772e5;box-shadow: 4px 2px 8px #6772e5;">
+    <script src="./js/jquery.mini.js"></script>
+    <script src="./nodeapp/node_modules/editor.md/editormd.js"></script>
     <script src="./nodeapp/node_modules/editor.md/lib/marked.min.js"></script>
     <script src="./nodeapp/node_modules/editor.md/lib/prettify.min.js"></script>
     <script type="text/javascript">
-        var markdown_view_js = function() {
+        var print = function() {
             var testView = editormd.markdownToHTML("test-markdown-view", {
                 htmlDecode: "style,script,iframe",
                 emoji: true,
@@ -25,7 +27,22 @@
                     //codeFold: true,
             })
         }
-        $(markdown_view_js)
+
+        var Post_id = 0,
+            account = 0,
+            title = 0,
+            article = 0
+        $.post("http://127.0.0.1:9696/ps", {
+            "account": "test"
+        }, function(data, status) {
+            var model = data.data.model
+            for (i in model) {
+                article = model[i].article
+                console.log(article)
+                $("#test-markdown-view").html($("#test-markdown-view").html() + `<textarea id="view-markdown-area" style="display:none;">${article}</textarea>`)
+                $(print)
+            }
+        })
     </script>
 </body>
 

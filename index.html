@@ -6,6 +6,8 @@
     <title>Index</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./nodeapp/node_modules/editor.md/css/editormd.css">
+    <link rel="stylesheet" href="./nodeapp/node_modules/editor.md/css/editormd.preview.css">
+
 </head>
 
 <body>
@@ -37,14 +39,6 @@
             <ul>
                 <li><a id="index" class="f-menu">主页</a></li>
                 <li>
-                    <a id="passage" class="f-menu"> 文章</a>
-                    <ul id="list1" class="s-menu">
-                        <li><a href="">前端 </a></li>
-                        <li><a href="">后端 </a></li>
-                        <li><a href="">日志 </a></li>
-                    </ul>
-                </li>
-                <li>
                     <a id="else" class="f-menu">简介</a>
                 </li>
                 <li>
@@ -56,6 +50,14 @@
                     </ul>
                 </li>
                 <li>
+                    <a id="passage" class="f-menu"> 文章</a>
+                    <ul id="list1" class="s-menu">
+                        <li><a href="">前端 </a></li>
+                        <li><a href="">后端 </a></li>
+                        <li><a href="">日志 </a></li>
+                    </ul>
+                </li>
+                <li>
                     <a id="logi" class="f-menu">登录</a>
                     <a href="http://localhost:5500" style="display: none;" id="logout" class="f-menu">退出</a>
                 </li>
@@ -63,7 +65,7 @@
         </div>
         <!--内容区域-->
         <div id="center">
-
+            <!-- 侧边栏 -->
             <div id="side">
                 <div id="slogan">
                     <p>生活原本沉闷，但跑起来就有风</p>
@@ -98,7 +100,6 @@
             </div>
             <!-- 注册页 -->
             <div id="regi" class="main">
-                <h2 style="text-align: left;"><a href="http://localhost:5500">&lt;&lt;返回</a></h2>
                 <h1>注册</h1>
                 <div>
                     <h3>用户名:</h3>
@@ -140,42 +141,6 @@
             </div>
             <!-- 默认页 -->
             <div id="moren" class="main">
-                <!-- 内容区域 -->
-                <div id="psg" class="word">
-                    <h1>Hello World</h1>
-                    <div>
-                        <h2>JavaScript 是属于 HTML 和 Web 的编程语言。</h2>
-
-                        <h2> 编程令计算机完成您需要它们做的工作。</h2>
-
-                        <h2> JavaScript 很容易学习。</h2>
-
-                        <h2> 本教程涵盖 JavaScript 基础和高级教程。</h2>
-
-                        <h2> 为何学习 JavaScript？</h2>
-                        <p>JavaScript 是 web 开发者必学的三种语言之一：</p>
-                        <ul>
-                            <li>HTML 定义网页的内容</li>
-                            <li>CSS 规定网页的布局</li>
-                            <li>JavaScript 对网页行为进行编程</li>
-                        </ul>
-                        <p> 本教程提供关于 JavaScript，以及 JavaScript 如何与 HTML 和 CSS 协同工作的知识。</p>
-                        <h2>您知道吗？</h2>
-                        <p> JavaScript 和 Java 是完全不同的语言，不论是概念还是设计。
-                        </p>
-                        <p> JavaScript 在 1995 年由 Brendan Eich 发明，并于 1997 年成为一部 ECMA 标准。 ECMA-262 是其官方名称。ECMAScript 6 （发布于 2015 年）是最新的 JavaScript 版本。</p>
-                        <h2>学习速度
-                        </h2>
-                        <p>在本教程中，您可以自由控制学习速度。 一切都取决于您。
-                        </p>
-                        <p>如果您遇到困难，请休息一会儿，然后重新读一读材料。 请始终确保您理解了“亲自试一试”中的实例和练习题。</p>
-                        <h2>JavaScript 测验
-                        </h2>
-                        <p>在 W3School 测试您的 JavaScript 技能！</p>
-                        <a id="test" href="https://www.w3school.com.cn/js/js_examples.asp">开始JavaScript技能测试！</a>
-
-                    </div>
-                </div>
 
                 <div id="els" class="word">
                     <h1>Introduction</h1>
@@ -207,12 +172,15 @@
                         <h2>Airbo</h2>
                     </div>
                 </div>
-                <!-- 内容区域 -->
+            </div>
+            <!-- 帖子页面 -->
+            <div id="post-passage" class="main">
+                <div id="test-markdown-view"></div>
             </div>
             <!-- 发帖页 -->
             <div id="post" class="main">
                 <div id="editor">
-                    <textarea class="editormd-markdown-textarea" name="doc" style="display:none;"># 请输入标题 !</textarea>
+                    <textarea id="editormd-textarea" class="editormd-markdown-textarea" name="doc" style="display:none;"># 请输入标题 !</textarea>
                 </div>
                 <div style="text-align: center;">
                     <button class="submit-button" style="display: inline-block;" id="markdown-button">发帖</button>
@@ -220,31 +188,32 @@
                 <!-- <iframe id="markdown-edit-area" src="./mdtest.html"></iframe> -->
             </div>
 
+            <!-- 页脚 -->
             <div id="footer">
                 <p>-----我是有底线的哦------</p>
             </div>
-
-
-
         </div>
 
-        <div id="side-tools">
-            <div id="top" class="side-tool"><img src="./img/top.png" alt="top"></div>
-            <div id="read" class="side-tool">
-                <p></p>
-            </div>
-        </div>
 
+
+    </div>
+    <!-- 侧边工具栏 -->
+    <div id="side-tools">
+        <div id="top" class="side-tool"><img src="./img/top.png" alt="top"></div>
+        <div id="read" class="side-tool">
+            <p></p>
+        </div>
     </div>
 
     <!-- scripts -->
+    <!-- 可换用cdn的jQuery -->
     <!-- <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
     <script src="./js/jquery.mini.js"></script>
     <script src="./script.js"></script>
-
+    <!-- editor.md js 引入 -->
     <script src="./nodeapp/node_modules/editor.md/editormd.min.js"></script>
-    <script>
-    </script>
+    <script src="./nodeapp/node_modules/editor.md/lib/marked.min.js"></script>
+    <script src="./nodeapp/node_modules/editor.md/lib/prettify.min.js"></script>
 </body>
 
 </html>

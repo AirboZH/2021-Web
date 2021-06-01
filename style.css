@@ -166,7 +166,7 @@
        margin: 150px 20px 100px 20px;
        display: inline-block;
        width: 60%;
-       height: 2000px;
+       height: auto;
        background-color: white;
        border-radius: 5px;
        padding: 40px 70px;
@@ -205,6 +205,10 @@
        display: none;
        padding: 0;
        height: 850px;
+   }
+   
+   #post-passage {
+       display: none;
    }
    
    #markdown-edit-area {

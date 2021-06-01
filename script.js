@@ -5,6 +5,7 @@ $(document).ready(function() {
     var alpha = 0
     var scl = 0
     var logstatus = 0
+    var ifpassage = 0
     var timer = setInterval(changepic, 5000)
     $(`#icon_point ul li img:eq(0)`).css("opacity", "100%")
     var pages = 1
@@ -15,13 +16,13 @@ $(document).ready(function() {
         $("#inpt").hide()
         $("#logi").hide()
         $("#logout").show()
-            // $("#logi").html('<a href="http://localhost:5500" id="logout" class="f-menu">退出</a>')
         $(".logst").html(`username: ${localStorage.getItem("account")}<br><br>Welcome`)
         $(".logst").css("margin-top", "16px")
         $("#sbm").click(function() {
             $('html,body').animate({ scrollTop: "950px" });
             $("#moren").hide()
             $("#regi").hide()
+            $("#post-passage").hide()
             $("#post").hide()
             $("#edit").css("display", "inline-block")
         })
@@ -30,6 +31,7 @@ $(document).ready(function() {
             $(editor)
             $("#moren").hide()
             $("#regi").hide()
+            $("#post-passage").hide()
             $("#edit").hide()
             $("#post").css("display", "inline-block")
         })
@@ -84,19 +86,17 @@ $(document).ready(function() {
             }
 
             // 滚到到区域变化结束
-            if (scl < 950) {
+            if (scl < 930) {
                 $(".f-menu").css("color", "white")
                 $(".f-menu:eq(0)").css("color", "tomato")
-            } else if (scl >= 950 && scl < 2070) {
+            } else if (scl >= 930 && scl < 1200) {
                 $(".f-menu").css("color", "white")
                 $(".f-menu:eq(1)").css("color", "tomato")
-            } else if (scl >= 2070 && scl < 2360) {
-                $(".f-menu").css("color", "white")
-                $(".f-menu:eq(2)").css("color", "tomato")
             } else {
                 $(".f-menu").css("color", "white")
-                $(".f-menu:eq(3)").css("color", "tomato")
+                $(".f-menu:eq(2)").css("color", "   tomato")
             }
+
 
             // 菜单栏滚动渐变动画
             alpha = scl / $(window).height();
@@ -117,23 +117,22 @@ $(document).ready(function() {
     $(".f-menu").mouseenter(function() {
         $(this).css("color", "rgb(248, 153, 136)")
     })
+
     $(".f-menu").mouseleave(function() {
-            $(this).css("color", "white")
-            if (scl < 950) {
-                $(".f-menu").css("color", "white")
-                $(".f-menu:eq(0)").css("color", "tomato")
-            } else if (scl >= 950 && scl < 2070) {
-                $(".f-menu").css("color", "white")
-                $(".f-menu:eq(1)").css("color", "tomato")
-            } else if (scl >= 2070 && scl < 2360) {
-                $(".f-menu").css("color", "white")
-                $(".f-menu:eq(2)").css("color", "   tomato")
-            } else {
-                $(".f-menu").css("color", "white")
-                $(".f-menu:eq(3)").css("color", "tomato")
-            }
-        })
-        // 小菜单选择效果
+        $(this).css("color", "white")
+        if (scl < 930) {
+            $(".f-menu").css("color", "white")
+            $(".f-menu:eq(0)").css("color", "tomato")
+        } else if (scl >= 930 && scl < 1200) {
+            $(".f-menu").css("color", "white")
+            $(".f-menu:eq(1)").css("color", "tomato")
+        } else {
+            $(".f-menu").css("color", "white")
+            $(".f-menu:eq(2)").css("color", "   tomato")
+        }
+    })
+
+    // 小菜单选择效果
     $(".s-menu li").mouseenter(function() {
         if (scl >= 500) {
             $(this).css("background-color", `rgba(44,62,80,${alpha-0.4})`)
@@ -147,10 +146,10 @@ $(document).ready(function() {
 
 
     // 菜单栏小标签show
-    $(`.f-menu:eq(1)`).mouseenter(function() {
+    $(`.f-menu:eq(3)`).mouseenter(function() {
         $("#list1").fadeIn()
     })
-    $(`.f-menu:eq(3)`).mouseenter(function() {
+    $(`.f-menu:eq(2)`).mouseenter(function() {
         $("#list2").fadeIn()
     })
     $(".main").mouseenter(function() {
@@ -178,10 +177,17 @@ $(document).ready(function() {
         $("#post").hide()
         $("#regi").hide()
         $("#edit").hide()
+        $("#post-passage").hide()
         $("#moren").css("display", "inline-block")
     })
     $("#passage").click(function() {
         $('html,body').animate({ scrollTop: "950px" });
+        $("#post-passage").css("display", "inline-block")
+        ifpassage = 1
+        $(refresh_passage)
+        $(".f-menu").css("color", "white")
+        $(".f-menu:eq(3)").css("color", "   tomato")
+        $("#moren").hide()
         $("#list1").fadeOut()
     })
     $("#top").click(function() {
@@ -242,13 +248,13 @@ $(document).ready(function() {
                     $("#inpt").hide()
                     $("#logi").hide()
                     $("#logout").show()
-                        // $("#logi").html('<a href="http://localhost:5500" id="logout" class="f-menu">退出</a>')
                     $(".logst").html(`username: ${res.account}<br><br>Welcome`)
                     $(".logst").css("margin-top", "16px")
                     $("#sbm").click(function() {
                         $('html,body').animate({ scrollTop: "950px" });
                         $("#moren").hide()
                         $("#regi").hide()
+                        $("#post-passage").hide()
                         $("#post").hide()
                         $("#edit").css("display", "inline-block")
                     })
@@ -257,6 +263,7 @@ $(document).ready(function() {
                         $(editor)
                         $("#moren").hide()
                         $("#regi").hide()
+                        $("#post-passage").hide()
                         $("#edit").hide()
                         $("#post").css("display", "inline-block")
                     })
@@ -289,10 +296,44 @@ $(document).ready(function() {
     $(editor)
 
     $("#markdown-button").click(function() {
-        var doc = editor.getMarkdown()
-        console.log(doc);
-        // $("#test-markdown-view").html(`<textarea id="view-markdown-area" style="display:none;">${doc}</textarea>`)
-        // $(mth)
-    })
+            var doc = $("#editormd-textarea").text()
+            doc += '<hr style="height : 0px ;border : 0px; border-bottom: 3px solid #6772e5;box-shadow: 4px 2px 8px #6772e5;">'
+            var title = doc.split("\n")[0]
+            console.log(doc);
+            console.log(title)
+            $.post("http://127.0.0.1:9696/pw", {
+                "account": localStorage.getItem("account"),
+                "title": title,
+                "article": doc
+            }, function(data, status) {
+                console.log("发帖返回:", data, status)
+
+            })
+        })
+        //markdown print
+
+    var print = function() {
+        var testView = editormd.markdownToHTML("test-markdown-view", {
+            htmlDecode: "style,script,iframe",
+            emoji: true,
+            taskList: true
+                //codeFold: true,
+        })
+    }
+
+    var article = 0
+    var refresh_passage = function() {
+        $.post("http://127.0.0.1:9696/ps", {
+            "account": "test"
+        }, function(data, status) {
+            var model = data.data.model
+            for (i in model) {
+                article = model[i].article
+                console.log(article)
+                $("#test-markdown-view").html($("#test-markdown-view").html() + `<textarea id="view-markdown-area" style="display:none;">${article}</textarea>`)
+                $(print)
+            }
+        })
+    }
 
 })
