@@ -1,4 +1,4 @@
-const {app} = require("./config")
+const { app } = require("./config")
 const login = require("./login")
 const info = require("./info")
 const register = require("./register.js")

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./nodeapp/node_modules/editor.md/css/editormd.preview.css">
+</head>
+
+<body>
+    <div id="test-markdown-view">
+        <textarea id="view-markdown-area" style="display:none;"># 123</textarea>
+    </div>
+
+    <script src="./nodeapp/node_modules/editor.md/lib/marked.min.js"></script>
+    <script src="./nodeapp/node_modules/editor.md/lib/prettify.min.js"></script>
+    <script type="text/javascript">
+        var markdown_view_js = function() {
+            var testView = editormd.markdownToHTML("test-markdown-view", {
+                htmlDecode: "style,script,iframe",
+                emoji: true,
+                taskList: true
+                    //codeFold: true,
+            })
+        }
+        $(markdown_view_js)
+    </script>
+</body>
+
+</html>

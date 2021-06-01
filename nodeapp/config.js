@@ -6,7 +6,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 module.exports = {
-  app,
-  db,
-  bcrypt,
+    app,
+    db,
 };

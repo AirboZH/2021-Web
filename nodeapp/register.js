@@ -1,5 +1,5 @@
-const {app,db} = require("./config")
-app.post("/register",async (req, res) => {
+const { app, db } = require("./config")
+app.post("/register", async(req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
     res.setHeader(
@@ -10,11 +10,10 @@ app.post("/register",async (req, res) => {
     var data = req.body;
     console.log(data)
     await db.User.create({
-        account:data.account,
-        email:data.email,
-        password:data.password
+        account: data.account,
+        email: data.email,
+        password: data.password
     })
     console.log(data)
     res.end(JSON.stringify(data))
 })
-

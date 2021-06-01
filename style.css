@@ -13,6 +13,7 @@
    
    body {
        min-width: 1000px;
+       overflow-x: hidden;
        background-color: black;
    }
    /* slide区域 */
@@ -59,13 +60,13 @@
    #pic1 {
        display: block;
    }
+   /*第二层*/
    /* 菜单栏 */
    
    #header-bar {
        width: 100%;
-       height: 4%;
-       background-color: rgba(44, 62, 80, 0);
-       padding-top: 10px;
+       height: 7%;
+       /* background: linear-gradient(150deg, #5e60e4 0%, #7780f8 10%, #25a4ff 100%); */
        position: relative;
        top: 0px;
        color: rgb(256, 256, 256);
@@ -73,15 +74,29 @@
    }
    
    #header-bar>ul {
-       margin-left: 230px;
+       margin: 15px 0px 0px 230px;
+       width: 90%;
+       position: absolute;
    }
    
    #header-bar ul li {
        display: inline-block;
        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-       font-size: 25px;
+       font-size: 30px;
        width: 150px;
        text-align: center;
+   }
+   
+   #header-bar ul li a {
+       margin-top: -13px;
+   }
+   
+   #header-bar-bg {
+       background: linear-gradient(150deg, #5e60e4 0%, #7780f8 10%, #25a4ff 100%);
+       width: 100%;
+       height: 100%;
+       position: absolute;
+       opacity: 0%;
    }
    
    .f-menu {
@@ -93,12 +108,15 @@
    #logi {
        float: right;
        position: absolute;
-       right: 50px;
+       right: 100px;
        top: 10px;
    }
    
-   .f-menu:hover {
-       color: rgb(248, 153, 136);
+   #logout {
+       float: right;
+       position: absolute;
+       right: 100px;
+       top: 10px;
    }
    
    .s-menu {
@@ -127,39 +145,113 @@
    }
    
    #center {
-       height: 2000px;
+       height: auto;
        text-align: center;
    }
    
    #side {
        display: inline-block;
        width: 15%;
-       position: relative;
-       margin-top: 200px;
+       position: absolute;
+       margin-top: 150px;
        vertical-align: top;
        border-radius: 5px;
        position: sticky;
-       top: 65px;
+       top: 100px;
+       margin-bottom: 200px;
    }
    
-   #main {
+   .main {
        vertical-align: top;
-       margin: 200px 20px 100px 20px;
+       margin: 150px 20px 100px 20px;
        display: inline-block;
        width: 60%;
        height: 2000px;
        background-color: white;
        border-radius: 5px;
-       padding-top: 40px;
+       padding: 40px 70px;
    }
    
-   #main h1 {
+   #edit {
+       display: none;
+       height: 530px;
+   }
+   
+   #regi {
+       display: none;
+       height: 1000px;
+   }
+   
+   #edit div {
+       display: inline-block;
+       margin: 30px 20px;
+   }
+   
+   #regi div {
+       display: inline-block;
+       margin: 30px 20px;
+   }
+   
+   #edit h2 a {
+       color: grey;
+       text-decoration: none;
+   }
+   
+   #edit h3 {
+       display: inline-block;
+   }
+   
+   #post {
+       display: none;
+       padding: 0;
+       height: 850px;
+   }
+   
+   #markdown-edit-area {
+       overflow: hidden;
+       width: 100%;
+       height: 800px;
+       border: 0px;
+   }
+   
+   .submit-button {
+       width: 180px;
+       height: 40px;
+       background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
+       border-radius: 5px;
+       color: white;
+       font-weight: 300;
+       font-size: 30px;
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       margin-top: 20px;
+       border: 0px;
+   }
+   
+   #subm:hover {
+       background: linear-gradient(150deg, #647dd1 15%, #4f57b1 70%, #3d418a 94%);
+   }
+   
+   #regi-subm:hover {
+       background: linear-gradient(150deg, #647dd1 15%, #4f57b1 70%, #3d418a 94%);
+   }
+   
+   .word {
+       height: 1100px;
+       text-align: left;
+       line-height: 50px;
+       font-weight: 500;
+       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   }
+   
+   #test {
+       color: tomato;
+   }
+   
+   .main h1 {
        color: #5E72E4;
        font-weight: 700;
-   }
-   
-   #psg {
-       height: 1100px;
+       text-align: center;
+       margin: 30px 20px;
    }
    
    #els {
@@ -170,9 +262,23 @@
        height: 330px;
    }
    
+   .people {
+       display: inline-block;
+       margin: 20px 80px;
+   }
+   
    .people img {
        width: 80px;
        border-radius: 50%;
+       transition: all .8s;
+   }
+   
+   .people img:hover {
+       transform: rotate(-360deg)
+   }
+   
+   .people h2 {
+       margin-top: 20px;
    }
    
    #slogan {
@@ -200,14 +306,36 @@
    }
    
    #sbm {
-       width: 100%;
+       width: 49%;
        height: 20%;
-       background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
+       background-color: #5E72E4;
        top: 25%;
        position: relative;
-       border-radius: 0px 0px 5px 5px;
+       border-radius: 0px 0px 0px 5px;
        padding-top: 13px;
        color: white;
+       display: inline-block;
+       border-right: #ffffff 2px solid;
+   }
+   
+   #reg {
+       width: 50%;
+       height: 20%;
+       background-color: #5E72E4;
+       top: 25%;
+       position: relative;
+       float: right;
+       border-radius: 0px 0px 5px 0px;
+       padding-top: 13px;
+       color: white;
+   }
+   
+   #reg:hover {
+       background: linear-gradient(150deg, #647dd1 15%, #4f57b1 70%, #3d418a 94%);
+   }
+   
+   #sbm:hover {
+       background: linear-gradient(150deg, #647dd1 15%, #4f57b1 70%, #3d418a 94%);
    }
    
    .logst {
@@ -217,7 +345,7 @@
    }
    
    .ipt {
-       width: 80%;
+       width: 220px;
        height: 30px;
        margin: 10px 10px;
        color: #34495e;
@@ -296,7 +424,7 @@
    }
    
    #about-info p a {
-       margin-left: 20px;
+       margin-left: 40px;
        text-decoration: none;
        color: rgb(36, 36, 36);
        font-family: 'Segoe UI', "黑体", Geneva, Verdana, sans-serif;

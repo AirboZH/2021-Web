@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Index</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./nodeapp/node_modules/editor.md/css/editormd.css">
 </head>
 
 <body>
@@ -26,12 +27,13 @@
         <div id="pic4" class="bgimg" style="background-image: url('./img/bgimg4.jpg');"></div>
     </div>
     <!--第二层-->
-    <div style="height: 100%;">
+    <div id="second-floor" style="height: 100%;">
         <!--空白占位区域-->
         <div style="height: 93%;" id="blank"></div>
 
         <!--菜单栏-->
         <div id="header-bar">
+            <div id="header-bar-bg"></div>
             <ul>
                 <li><a id="index" class="f-menu">主页</a></li>
                 <li>
@@ -43,7 +45,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a id="else" class="f-menu">其他</a>
+                    <a id="else" class="f-menu">简介</a>
                 </li>
                 <li>
                     <a id="about" class="f-menu">关于</a>
@@ -55,9 +57,9 @@
                 </li>
                 <li>
                     <a id="logi" class="f-menu">登录</a>
+                    <a href="http://localhost:5500" style="display: none;" id="logout" class="f-menu">退出</a>
                 </li>
             </ul>
-            <div id="header-bar-bg"></div>
         </div>
         <!--内容区域-->
         <div id="center">
@@ -67,10 +69,13 @@
                     <p>生活原本沉闷，但跑起来就有风</p>
                 </div>
                 <div id="login">
-                    <input type="text" name="username" value="username" class="ipt">
-                    <input type="password" name="pswd" value="password" class="ipt">
+                    <div id="inpt">
+                        <input type="text" name="username" value="username" class="ipt">
+                        <input type="password" name="pswd" value="password" class="ipt">
+                    </div>
                     <p class="logst"></p>
                     <div id="sbm">LOG IN</div>
+                    <div id="reg">REGISTER</div>
                 </div>
                 <div id="ad">
                     <img src="./img/x.png" id="x" alt="x">
@@ -81,31 +86,112 @@
                     <p>Hi~我是一只汪</p>
                     <div id="web"><img src="./img/web.png" class="about-ico" alt="">
                         <p>
-                            <a href="www.tomzhang.com.cn">我的个人博客</a>
+                            <a href="http://www.tomzhang.com.cn">我的个人博客</a>
                         </p>
                     </div>
                     <div id="mail"><img src="./img/email.png" class="about-ico" alt="">
                         <p>
-                            <a href="mailto:airbozh@qq.com">993372253@qq.com</a>
+                            <a href="mailto:airbozh@qq.com">airbozh@qq.com</a>
                         </p>
                     </div>
-
                 </div>
             </div>
-
-            <div id="main">
-                <div id="psg">
+            <!-- 注册页 -->
+            <div id="regi" class="main">
+                <h2 style="text-align: left;"><a href="http://localhost:5500">&lt;&lt;返回</a></h2>
+                <h1>注册</h1>
+                <div>
+                    <h3>用户名:</h3>
+                    <input type="text" class="ipt">
+                </div>
+                <div>
+                    <h3>密码:</h3>
+                    <input type="password" class="ipt">
+                </div>
+                <div>
+                    <h3>Email:</h3>
+                    <input type="text" class="ipt">
+                </div>
+                <br>
+                <div id="regi-subm" class="submit-button">Sumbit</div>
+            </div>
+            <!-- 编辑页 -->
+            <div id="edit" class="main">
+                <h1>编辑信息</h1>
+                <div>
+                    <h3>用户名:</h3>
+                    <input type="text" class="ipt">
+                </div>
+                <div>
+                    <h3>密码:</h3>
+                    <input type="password" class="ipt">
+                </div>
+                <br>
+                <div>
+                    <h3>Email:</h3>
+                    <input type="text" class="ipt">
+                </div>
+                <div>
+                    <h3>ID:</h3>
+                    <input type="text" class="ipt">
+                </div>
+                <br>
+                <div id="subm" class="submit-button">Sumbit</div>
+            </div>
+            <!-- 默认页 -->
+            <div id="moren" class="main">
+                <!-- 内容区域 -->
+                <div id="psg" class="word">
                     <h1>Hello World</h1>
-                    <p>我做了什么： 静态页面展示 const express = require('express') const app = express(); app.use(express.static(__dirname + '/client')) app.listen(999,()=>{ console.log('listing 999') }) 注册邮箱的验证 登录信息的post和返回登录状态 let sendMsg = ({ "email": tempForm.get("email"),
-                        "password": tempForm.get("password") }); $.post("http://127.0.0.1:8081", sendMsg, function (data, textStatus, jqXHR) { if(data.status === 1){ toast("系统","登录成功！"); let url = "./demo-chat.html"; window.localStorage.setItem("token",data.token);
-                        window.localStorage.setItem("id",data.id); window.localStorage.setItem("email",data.email); window.location.replace(url); } else{ toast("系统", "登录失败"); TemplateSpinner.remove(); } } ); 用户上线信息的发送和广播 用数组储存用户在线列表并在有新增项时返回 用户离线时广播消息和删除列表项
-                        同上 发送消息的广播 服务器环境搭建和运行 学到了什么： Node.JS Http模块响应网页请求 Express框架静态页面，post和get请求的发送和响应 Websocket消息的发送与返回 Nodemailer后端服务器自动发送邮件 localStorage本地储存 还应该做点什么： 本次项目没有做私聊是一个小小的遗憾，而原因就是没有在最初项目刚开始的时候选择合适的模块，到后期意识到这个问题再改的时候又要重写很多的代码，于是这个feat就被搁置了。
-                        应该在项目开始的时候就有对整个项目的规划，然后选用合适的工具和方法，我们的项目没有完整的规划，到后面做东西的时候都是走一步看一步，几个人想想要做什么，一拍脑袋就一起做什么了。 技术方面，对于计算机网络http协议等基础还是差的很多，遇到一些跨域等问题的时候就不知道该做什么了。 代码可读性差，没什么写注释的习惯，自己写的东西几天后自己再看的时候都看不懂了。 端口使用过多，每一个小事情都有自己的端口，应该用请求路径代替。
-                    </p>
+                    <div>
+                        <h2>JavaScript 是属于 HTML 和 Web 的编程语言。</h2>
+
+                        <h2> 编程令计算机完成您需要它们做的工作。</h2>
+
+                        <h2> JavaScript 很容易学习。</h2>
+
+                        <h2> 本教程涵盖 JavaScript 基础和高级教程。</h2>
+
+                        <h2> 为何学习 JavaScript？</h2>
+                        <p>JavaScript 是 web 开发者必学的三种语言之一：</p>
+                        <ul>
+                            <li>HTML 定义网页的内容</li>
+                            <li>CSS 规定网页的布局</li>
+                            <li>JavaScript 对网页行为进行编程</li>
+                        </ul>
+                        <p> 本教程提供关于 JavaScript，以及 JavaScript 如何与 HTML 和 CSS 协同工作的知识。</p>
+                        <h2>您知道吗？</h2>
+                        <p> JavaScript 和 Java 是完全不同的语言，不论是概念还是设计。
+                        </p>
+                        <p> JavaScript 在 1995 年由 Brendan Eich 发明，并于 1997 年成为一部 ECMA 标准。 ECMA-262 是其官方名称。ECMAScript 6 （发布于 2015 年）是最新的 JavaScript 版本。</p>
+                        <h2>学习速度
+                        </h2>
+                        <p>在本教程中，您可以自由控制学习速度。 一切都取决于您。
+                        </p>
+                        <p>如果您遇到困难，请休息一会儿，然后重新读一读材料。 请始终确保您理解了“亲自试一试”中的实例和练习题。</p>
+                        <h2>JavaScript 测验
+                        </h2>
+                        <p>在 W3School 测试您的 JavaScript 技能！</p>
+                        <a id="test" href="https://www.w3school.com.cn/js/js_examples.asp">开始JavaScript技能测试！</a>
+
+                    </div>
                 </div>
-                <div id="els">
-                    <h1>Else</h1>
+
+                <div id="els" class="word">
+                    <h1>Introduction</h1>
+                    <h2>desgin idea</h2>
+                    <p>我们十分喜欢具有较大媒体展示的页面，</p>
+                    <p>并且，页面内容也十分简洁</p>
+                    <p>同时，网页中也加入了很多的动画和样式，统一的风格让他们看起来也十分和谐统一</p>
+                    <br>
+                    <h2>What we can do</h2>
+                    <ul>
+                        <li>网站最主要的作用的作为个人博客使用</li>
+                        <li>当然，我们提供了很多的图片展示区域，你也可以用网页来展示你的商品或团队</li>
+                        <li>我们也提供了完善的登录注册功能，稍作改动，也可以作为论坛来使用</li>
+                    </ul>
                 </div>
+
                 <div id="abt">
                     <h1>About us</h1>
                     <div class="people">
@@ -121,7 +207,19 @@
                         <h2>Airbo</h2>
                     </div>
                 </div>
+                <!-- 内容区域 -->
             </div>
+            <!-- 发帖页 -->
+            <div id="post" class="main">
+                <div id="editor">
+                    <textarea class="editormd-markdown-textarea" name="doc" style="display:none;"># 请输入标题 !</textarea>
+                </div>
+                <div style="text-align: center;">
+                    <button class="submit-button" style="display: inline-block;" id="markdown-button">发帖</button>
+                </div>
+                <!-- <iframe id="markdown-edit-area" src="./mdtest.html"></iframe> -->
+            </div>
+
             <div id="footer">
                 <p>-----我是有底线的哦------</p>
             </div>
@@ -140,8 +238,13 @@
     </div>
 
     <!-- scripts -->
-    <script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+    <!-- <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+    <script src="./js/jquery.mini.js"></script>
     <script src="./script.js"></script>
+
+    <script src="./nodeapp/node_modules/editor.md/editormd.min.js"></script>
+    <script>
+    </script>
 </body>
 
 </html>

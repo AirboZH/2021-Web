@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./nodeapp/node_modules/editor.md/css/editormd.css">
+</head>
+
+<body>
+    <div id="editor">
+        <textarea class="editormd-markdown-textarea" name="doc" style="display:none;">### Hello Editor.md !</textarea>
+    </div>
+    <div style="text-align: center;">
+        <button style="display: inline-block;" id="markdown-button">123123</button>
+    </div>
+
+
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="./nodeapp/node_modules/editor.md/editormd.min.js"></script>
+    <script>
+        var editor = editormd("editor", {
+            width: "80ppx",
+            height: "500px",
+            path: "./nodeapp/node_modules/editor.md/lib/",
+        });
+        $(editor)
+
+        $("#markdown-button").click(function() {
+            var doc = editor.getMarkdown()
+            console.log(doc);
+            // $("#test-markdown-view").html(`<textarea id="view-markdown-area" style="display:none;">${doc}</textarea>`)
+            // $(mth)
+        })
+    </script>
+
+</body>
+
+</html>
