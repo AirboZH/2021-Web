@@ -13,6 +13,7 @@
    
    body {
        min-width: 1000px;
+       overflow-x: hidden;
        background-color: black;
    }
    /* slide区域 */
@@ -60,8 +61,6 @@
        display: block;
    }
    /*第二层*/
-   
-   #second-floor {}
    /* 菜单栏 */
    
    #header-bar {
@@ -75,7 +74,8 @@
    }
    
    #header-bar>ul {
-       margin: 15px 230px;
+       margin: 15px 0px 0px 230px;
+       width: 90%;
        position: absolute;
    }
    
@@ -108,7 +108,14 @@
    #logi {
        float: right;
        position: absolute;
-       right: 50px;
+       right: 100px;
+       top: 10px;
+   }
+   
+   #logout {
+       float: right;
+       position: absolute;
+       right: 100px;
        top: 10px;
    }
    
@@ -167,7 +174,7 @@
    
    #edit {
        display: none;
-       height: 1000px;
+       height: 530px;
    }
    
    #regi {
@@ -194,19 +201,20 @@
        display: inline-block;
    }
    
-   #subm {
-       width: 180px;
-       height: 40px;
-       background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
-       border-radius: 5px;
-       color: white;
-       font-weight: 300;
-       font-size: 30px;
-       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-       margin-top: 20px;
+   #post {
+       display: none;
+       padding: 0;
+       height: 850px;
    }
    
-   #regi-subm {
+   #markdown-edit-area {
+       overflow: hidden;
+       width: 100%;
+       height: 800px;
+       border: 0px;
+   }
+   
+   .submit-button {
        width: 180px;
        height: 40px;
        background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
@@ -216,6 +224,7 @@
        font-size: 30px;
        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
        margin-top: 20px;
+       border: 0px;
    }
    
    #subm:hover {

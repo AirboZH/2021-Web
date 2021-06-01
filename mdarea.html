@@ -6,29 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        #q {
-            background-color: rebeccapurple;
-            height: 300px;
-            width: 200px;
-            position: absolute;
-        }
-        
-        #w {
-            position: absolute;
-            height: 800px;
-            width: 100px;
-            background-color: aquamarine;
-        }
-        
-        .a {}
-    </style>
+    <link rel="stylesheet" href="./nodeapp/node_modules/editor.md/css/editormd.preview.css">
 </head>
 
 <body>
-    <div id="q" class="a"></div>
-    <div id="w" class="a"></div>
+    <div id="test-markdown-view">
+        <textarea id="view-markdown-area" style="display:none;"># 123</textarea>
+    </div>
 
+    <script src="./nodeapp/node_modules/editor.md/lib/marked.min.js"></script>
+    <script src="./nodeapp/node_modules/editor.md/lib/prettify.min.js"></script>
+    <script type="text/javascript">
+        var markdown_view_js = function() {
+            var testView = editormd.markdownToHTML("test-markdown-view", {
+                htmlDecode: "style,script,iframe",
+                emoji: true,
+                taskList: true
+                    //codeFold: true,
+            })
+        }
+        $(markdown_view_js)
+    </script>
 </body>
 
 </html>

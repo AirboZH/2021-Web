@@ -4,10 +4,37 @@ $(document).ready(function() {
     $(`#list2`).hide()
     var alpha = 0
     var scl = 0
+    var logstatus = 0
     var timer = setInterval(changepic, 5000)
     $(`#icon_point ul li img:eq(0)`).css("opacity", "100%")
     var pages = 1
-        // 初始化结束
+    if (localStorage.getItem("account") != null) {
+        logstatus = 1
+        $("#sbm").text("EDIT")
+        $("#reg").text("POST")
+        $("#inpt").hide()
+        $("#logi").hide()
+        $("#logout").show()
+            // $("#logi").html('<a href="http://localhost:5500" id="logout" class="f-menu">退出</a>')
+        $(".logst").html(`username: ${localStorage.getItem("account")}<br><br>Welcome`)
+        $(".logst").css("margin-top", "16px")
+        $("#sbm").click(function() {
+            $('html,body').animate({ scrollTop: "950px" });
+            $("#moren").hide()
+            $("#regi").hide()
+            $("#post").hide()
+            $("#edit").css("display", "inline-block")
+        })
+        $("#reg").click(function() {
+            $('html,body').animate({ scrollTop: "950px" });
+            $(editor)
+            $("#moren").hide()
+            $("#regi").hide()
+            $("#edit").hide()
+            $("#post").css("display", "inline-block")
+        })
+    }
+    // 初始化结束
 
 
     // 换壁纸函数
@@ -57,10 +84,10 @@ $(document).ready(function() {
             }
 
             // 滚到到区域变化结束
-            if (scl < 1033) {
+            if (scl < 950) {
                 $(".f-menu").css("color", "white")
                 $(".f-menu:eq(0)").css("color", "tomato")
-            } else if (scl >= 1033 && scl < 2070) {
+            } else if (scl >= 950 && scl < 2070) {
                 $(".f-menu").css("color", "white")
                 $(".f-menu:eq(1)").css("color", "tomato")
             } else if (scl >= 2070 && scl < 2360) {
@@ -92,13 +119,13 @@ $(document).ready(function() {
     })
     $(".f-menu").mouseleave(function() {
             $(this).css("color", "white")
-            if (scl < 1033) {
+            if (scl < 950) {
                 $(".f-menu").css("color", "white")
                 $(".f-menu:eq(0)").css("color", "tomato")
-            } else if (scl >= 1033 && scl < 2186) {
+            } else if (scl >= 950 && scl < 2070) {
                 $(".f-menu").css("color", "white")
                 $(".f-menu:eq(1)").css("color", "tomato")
-            } else if (scl >= 2186 && scl < 2360) {
+            } else if (scl >= 2070 && scl < 2360) {
                 $(".f-menu").css("color", "white")
                 $(".f-menu:eq(2)").css("color", "   tomato")
             } else {
@@ -147,7 +174,12 @@ $(document).ready(function() {
             $("#list2").fadeOut()
         })
         // 菜单栏小标签show结束
-
+    $(".f-menu").click(function() {
+        $("#post").hide()
+        $("#regi").hide()
+        $("#edit").hide()
+        $("#moren").css("display", "inline-block")
+    })
     $("#passage").click(function() {
         $('html,body').animate({ scrollTop: "950px" });
         $("#list1").fadeOut()
@@ -178,39 +210,62 @@ $(document).ready(function() {
             $(this).val("")
         }
     })
+    $("#logout").click(function() {
+        localStorage.clear()
+    })
     $("#x").click(function() {
         $('#ad').fadeOut()
     })
-    $("#reg").click(function() {
-        $("#moren").hide()
-        $("#regi").css("display", "inline-block")
-    })
-
 
     // network
-    $("#sbm").click(function() {
-        let msg = {
-            account: $("#login input:eq(0)").val(),
-            password: $("#login input:eq(1)").val()
-        }
-        $.post("http://127.0.0.1:9696/login", msg, function(res) {
-            if (res.status == 1) {
-                $("#sbm").text("EDIT")
-                $("#inpt").hide()
-                $("#reg").hide()
-                $("#logi").html('<a href="http://localhost:5500" class="f-menu">退出</a>')
-                $(".logst").html(`username: ${res.account}<br><br>Welcome`)
-                $("#sbm").css("width", "100%")
-                $(".logst").css("margin-top", "16px")
-                $("#sbm").click(function() {
-                    $("#moren").hide()
-                    $("#edit").css("display", "inline-block")
-                })
-            } else {
-                alert(res.msg)
-            }
+    if (logstatus == 0) {
+        $("#reg").click(function() {
+            $('html,body').animate({ scrollTop: "950px" });
+            $("#moren").hide()
+            $("#post").hide()
+            $("#edit").hide()
+            $("#regi").css("display", "inline-block")
         })
-    })
+
+
+
+        $("#sbm").click(function() {
+            let msg = {
+                account: $("#login input:eq(0)").val(),
+                password: $("#login input:eq(1)").val()
+            }
+            $.post("http://127.0.0.1:9696/login", msg, function(res) {
+                if (res.status == 1) {
+                    localStorage.setItem("account", res.account);
+                    $("#sbm").text("EDIT")
+                    $("#reg").text("POST")
+                    $("#inpt").hide()
+                    $("#logi").hide()
+                    $("#logout").show()
+                        // $("#logi").html('<a href="http://localhost:5500" id="logout" class="f-menu">退出</a>')
+                    $(".logst").html(`username: ${res.account}<br><br>Welcome`)
+                    $(".logst").css("margin-top", "16px")
+                    $("#sbm").click(function() {
+                        $('html,body').animate({ scrollTop: "950px" });
+                        $("#moren").hide()
+                        $("#regi").hide()
+                        $("#post").hide()
+                        $("#edit").css("display", "inline-block")
+                    })
+                    $("#reg").click(function() {
+                        $('html,body').animate({ scrollTop: "950px" });
+                        $(editor)
+                        $("#moren").hide()
+                        $("#regi").hide()
+                        $("#edit").hide()
+                        $("#post").css("display", "inline-block")
+                    })
+                } else {
+                    alert(res.msg)
+                }
+            })
+        })
+    }
     $("#regi-subm").click(function() {
         let msg = {
             account: $("#regi input:eq(0)").val(),
@@ -223,6 +278,21 @@ $(document).ready(function() {
     })
 
 
+    //markdown editor area
+    var editor = function() {
+        editormd("editor", {
+            width: "100%",
+            height: "740px",
+            path: "./nodeapp/node_modules/editor.md/lib/",
+        })
+    }
+    $(editor)
 
+    $("#markdown-button").click(function() {
+        var doc = editor.getMarkdown()
+        console.log(doc);
+        // $("#test-markdown-view").html(`<textarea id="view-markdown-area" style="display:none;">${doc}</textarea>`)
+        // $(mth)
+    })
 
 })
