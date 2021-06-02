@@ -12,7 +12,7 @@ app.post("/register", async(req, res) => {
     await db.User.create({
         account: data.account,
         email: data.email,
-        password: bcrypt.hashSync(data.password,16)
+        password: data.password
     })
     console.log(data)
     res.end(JSON.stringify(data))

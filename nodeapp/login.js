@@ -17,11 +17,8 @@ app.post("/login", async (req, res) => {
     });
   }
 
-  const passwordValid = bcrypt.compareSync(
-    bcrypt.hashSync(password, 16),
-    model.password
-  );
-  if (!passwordValid) {
+  const passwordValid = model.password
+  if (passwordValid==password) {
     console.log("登陆成功");
     res.send({
       status: 1,
