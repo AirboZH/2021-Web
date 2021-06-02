@@ -196,6 +196,7 @@ $(document).ready(function() {
         $(".f-menu:eq(3)").css("color", "   tomato")
         $("#moren").hide()
         $("#list1").fadeOut()
+        $("#test-markdown-view").html("")
     })
     $("#top").click(function() {
         $('html,body').animate({ scrollTop: "0px" });
@@ -291,6 +292,23 @@ $(document).ready(function() {
             location.replace("http://127.0.0.1:5500")
         })
     })
+    $("#subm").click(function() {
+        let msg = {
+            account: $("#edit input:eq(0)").val(),
+            sex: $("#edit input:eq(1)").val(),
+            signature: $("#edit input:eq(2)").val(),
+            age: $("#edit input:eq(3)").val()
+
+        }
+        console.log(msg)
+        $.post("http://127.0.0.1:9696/info", msg, function(res, status) {
+            alert("修改成功", res.data)
+            console.log(res.data)
+            localStorage.setItem("account", res.data.account)
+            let data = JSON.stringify(res.data)
+            localStorage.setItem("suerdata", data)
+        })
+    })
 
 
     //markdown editor area
@@ -335,15 +353,27 @@ $(document).ready(function() {
     }
 
     var article = 0
+    var com = 0
+    var post_id = 0
     var refresh_passage = function() {
         $.post("http://127.0.0.1:9696/pa", function(data, status) {
             var model = data.data.model
-            for (i in model) {
+            for (let i = 0; i < model.length; i++) {
                 article = model[i].article
-                console.log(article)
+                post_id = model[i].Post_id
                 $("#test-markdown-view").html($("#test-markdown-view").html() + `<textarea id="view-markdown-area" style="display:none;">${article}</textarea>`)
                 $(print)
             }
+        })
+    }
+
+    function com_post() {
+        $.post("http://127.0.0.1:9696/cw", {
+            "account": localStorage.getItem("account"),
+            "content": $(`#com_input_${pid}`).text(),
+            "Post_id": pid
+        }, function() {
+
         })
     }
 
