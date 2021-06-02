@@ -1,10 +1,8 @@
 const { app, db } = require("./config");
 /**
- * @param account
  * @returns model
  */
-app.post("/ps",async(req,res)=>{
-    const {account} = req.body;
+app.post("/pa",async(req,res)=>{
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
     res.setHeader(
@@ -12,14 +10,10 @@ app.post("/ps",async(req,res)=>{
       "X-Requested-With,content-type, Authorization"
     );
     res.setHeader("Content-Type", "application/json;charset=utf-8");
-    const model = await db.Post.findAll({
-        where:{
-            account
-        }
-    })
+    const model = await db.Post.findAll()
     res.send({
-        code:103,
-        msg:"已查找该用户所有帖子",
+        code:104,
+        msg:"已查找所有帖子",
         data:{
             model
         }

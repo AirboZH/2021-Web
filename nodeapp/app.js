@@ -7,6 +7,7 @@ const pw = require("./post_write")
 const cw = require("./com_write")
 const ps = require("./post_show")
 const cs = require("./com_Show")
+const pa = require("./post_all")
 
 app.listen(9696, () => {
     console.log("listing 9696")
