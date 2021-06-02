@@ -287,7 +287,8 @@ $(document).ready(function() {
             password: $("#regi input:eq(1)").val()
         }
         $.post("http://127.0.0.1:9696/register", msg, function(res, status) {
-            location.reload()
+            alert("注册成功")
+            location.replace("http://127.0.0.1:5500")
         })
     })
 
@@ -316,7 +317,6 @@ $(document).ready(function() {
                 console.log("发帖返回:", data)
                 if (data.code == 1) {
                     alert(data.msg)
-                    location.reload()
                 } else {
                     alert("发帖失败")
                 }
@@ -336,9 +336,7 @@ $(document).ready(function() {
 
     var article = 0
     var refresh_passage = function() {
-        $.post("http://127.0.0.1:9696/ps", {
-            "account": "test"
-        }, function(data, status) {
+        $.post("http://127.0.0.1:9696/pa", function(data, status) {
             var model = data.data.model
             for (i in model) {
                 article = model[i].article
