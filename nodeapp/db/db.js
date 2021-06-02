@@ -31,8 +31,8 @@ Comment.belongsTo(Post,{
     targetKey:"account"
 })
 
-// sequelize.sync({force:true})
-sequelize.sync()
+sequelize.sync({force:true})
+// sequelize.sync()
 module.exports={
     User,
     Post,
