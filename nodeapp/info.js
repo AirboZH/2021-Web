@@ -9,7 +9,7 @@ app.post("/info",async(req,res)=>{
     );
     res.setHeader("Content-Type", "application/json;charset=utf-8");
     let {account,sex,signature,age}=req.body;
-    const model=await db.Web.findOne({where:{account}})
+    const model=await db.User.findOne({where:{account}})
     console.log(model.dataValues)
     if(account){
         model.account=account

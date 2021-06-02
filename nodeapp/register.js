@@ -1,4 +1,4 @@
-const { app, db } = require("./config")
+const { app, db ,bcrypt} = require("./config")
 app.post("/register", async(req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
@@ -9,7 +9,7 @@ app.post("/register", async(req, res) => {
     res.setHeader("Content-Type", "application/json;charset=utf-8");
     var data = req.body;
     console.log(data)
-    await db.Web.create({
+    await db.User.create({
         account: data.account,
         email: data.email,
         password: data.password
